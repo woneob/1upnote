@@ -1,0 +1,19 @@
+# Site settings
+title: 1UPNOTE
+description: "UI/UX blog for beginners &amp; advanced web designers"
+email: 1up@1upz.com
+baseurl: /
+url: http://1upnote.com
+
+# Build settings
+markdown: kramdown
+permalink: /:title
+
+highlighter: rouge
+
+gems:
+  - jekyll-sitemap
+
+sass:
+  sass_dir: assets/styles/_scss
+  style: compressed
