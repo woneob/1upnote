@@ -4,6 +4,11 @@ description: "UI/UX blog for beginners &amp; advanced web designers"
 email: 1up@1upz.com
 baseurl: ""
 url: http://1upnote.com
+exclude:
+  - README.md
+  - .ruby-version
+  - Gemfile
+  - Gemfile.lock
 
 # Build settings
 markdown: kramdown
