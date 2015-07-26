@@ -1,24 +1,25 @@
-# Site settings
 title: 1UPNOTE
 description: "UI/UX blog for beginners &amp; advanced web designers"
 email: 1up@1upz.com
 baseurl: ""
 url: http://1upnote.com
+markdown: kramdown
+permalink: /:title
+
 exclude:
   - README.md
   - .ruby-version
   - Gemfile
   - Gemfile.lock
 
-# Build settings
-markdown: kramdown
-permalink: /:title
-
-highlighter: pygments
-
 gems:
   - jekyll-sitemap
+
+highlighter: pygments
 
 sass:
   sass_dir: assets/styles/_scss
   style: compressed
+
+compress_html:
+  clippings: all
