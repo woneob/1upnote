@@ -1,0 +1,10 @@
+<!--
+  _ _   _ ___
+ / | | | | _ `
+ | | |_| |  _/
+ |_|.___/|_|
+
+ {{ site.title }} - {{ site.description | markdown }}
+ Last update at {% for post in site.posts limit:1 %}{{ post.date | date_to_long_string }}{% endfor %}
+
+-->
