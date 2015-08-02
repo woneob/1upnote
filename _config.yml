@@ -8,6 +8,8 @@ permalink: /:title
 author:
   name: 1UP
   email: 1up@1upz.com
+  twitter: https://twitter.com/1upz
+  github: https://github.com/woneob
 
 exclude:
   - README.md
