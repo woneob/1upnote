@@ -6,6 +6,7 @@ url: http://1upnote.com
 markdown: kramdown
 permalink: /:title
 timezone: "Asia/Seoul"
+language: ko
 author:
   name: 1UP
   email: 1up@1upz.com
