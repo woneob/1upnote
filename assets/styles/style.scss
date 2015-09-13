@@ -2,6 +2,17 @@
 layout: null
 ---
 
+/*!
+  _ _   _ ___
+ / | | | | _ `
+ | | |_| |  _/
+ |_|.___/|_|
+
+ {{site.title}} - {{site.description | markdown}}
+ Last update at {{site.posts.first.date | date: "%B %-d, %Y"}}
+
+*/
+
 @import 'mixins';
 @import 'reset';
 @import 'defaults';
