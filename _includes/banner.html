@@ -4,7 +4,8 @@
  | | |_| |  _/
  |_|.___/|_|
 
- {{site.title}} - {{site.description | markdown}}
- Last update at {{site.posts.first.date | date: "%B %-d, %Y"}}
+ {{ site.title }} - {{ site.description | markdown }}
+ Last post update's date: {{ site.posts.first.date | date: "%B %-d, %Y" }}
+ Version: {{ site.version }}
 
 -->
