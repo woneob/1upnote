@@ -12,6 +12,7 @@ author:
   email: 1up@1upz.com
   twitter: https://twitter.com/1upz
   github: https://github.com/woneob
+version: 0.0.1
 
 exclude:
   - README.md
