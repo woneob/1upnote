@@ -1,0 +1,29 @@
+---
+layout: null
+---
+/* The humans responsible & colophon */
+/* humanstxt.org */
+
+ _ _   _ ___
+/ | | | | _ `
+| | |_| |  _/
+|_|.___/|_|
+
+
+/* TEAM */
+Your title: {{ site.author.name }}
+Email: {{ site.author.email }}
+Twitter: {{ site.author.twitter | prepend: '@'}}
+Github: {{ site.author.github | prepend: 'https://github.com/' }}
+Location: {{ site.author.location }}
+
+/* THANKS */
+Jekyll (https://jekyllrb.com/)
+
+/* SITE */
+Site Name: {{ site.title }}
+Site URL: {{ site.url }}
+Version: {{ site.version }}
+Last update: {{ site.posts.first.date | date: "%Y/%m/%d" }}
+Language: {{ site.language.name }}
+Timezone: {{ site.timezone }}
