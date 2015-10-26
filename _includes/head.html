@@ -1,9 +1,34 @@
 <head>
+  <!-- Character Set -->
   <meta charset="utf-8">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <!-- Title -->
+  {% if page.title %}
+    {% if page.title == 'home' %}
+      <title>{{ site.title }}</title>
+    {% else %}
+      <title>{{ page.title | capitalize | append: ' - ' | append: site.title }}</title>
+    {% endif %}
+  {% else %}
+    <title>{{ site.title }}</title>
+  {% endif %}
+
+  <!-- Description -->
+  {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+  {% else %}
+    <meta name="description" content="{{ site.description }}">
+  {% endif %}
+
+  <!-- Viewport -->
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- Canonical -->
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="/assets/styles/style.css">
+
+  <!-- RSS Feed -->
   <link rel="alternate" type="application/rss+xml" title="My Weblog feed" href="/feed.xml">
 </head>
