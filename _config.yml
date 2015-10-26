@@ -7,6 +7,7 @@ permalink: /:title
 timezone: "Asia/Seoul"
 language:
   code: ko
+  locale: ko_KR
   name: Korean
 author:
   name: 1UP
