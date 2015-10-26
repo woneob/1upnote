@@ -31,3 +31,4 @@ sass:
 
 compress_html:
   clippings: all
+  comments: ["<!-- ", " -->"]
