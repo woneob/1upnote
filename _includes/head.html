@@ -23,6 +23,30 @@
   <!-- Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Twitter Card -->
+  <meta name="twitter:site" content="{{ site.author.twitter | prepend: '@'}}">
+  <meta name="twitter:creator" content="{{ site.author.twitter | prepend: '@'}}">
+
+  {% if page.title %}
+    <meta name="twitter:title" content="{{ page.title }}">
+  {% else %}
+    <meta name="twitter:title" content="{{ site.title }}">
+  {% endif %}
+
+  {% if page.description %}
+    <meta name="twitter:description" content="{{ page.description }}">
+  {% else %}
+    <meta name="twitter:description" content="{{ site.description }}">
+  {% endif %}
+
+  {% if page.coverImage %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ page.coverImage }}">
+  {% else %}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="/assets/images/icons/ms-icon-310x310.png">
+  {% endif %}
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="/assets/images/icons/favicon.ico" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icons/android-icon-192x192.png">
