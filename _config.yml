@@ -1,37 +1,54 @@
-title: 1UPNOTE
-description: "UI/UX blog for advanced web designers"
-baseurl: ""
+# Website settings
+title: 1upnote
+description: UI/UX blog for advanced web designers
+baseurl: ''
 url: http://1upnote.com
-markdown: kramdown
 permalink: /:title
-timezone: "Asia/Seoul"
+timezone: Asia/Seoul
+version: 0.0.1
+
+# Language and locale settings
 language:
   code: ko
   locale: ko_KR
   name: Korean
+
+# Author information
 author:
   name: 1UP
-  location: "Seoul, Korea"
+  location: Seoul, Korea
   email: 1up@1upz.com
   twitter: 1upz
   github: woneob
-version: 0.0.1
 
+# Exclude files from the production build
 exclude:
-  - README.md
-  - Gemfile
-  - Gemfile.lock
-  - CNAME
+- README.md
+- Gemfile
+- Gemfile.lock
+- CNAME
 
+# Google sitemap generation
 gems:
-  - jekyll-sitemap
+- jekyll-sitemap
 
+# Markdown settings
+markdown: kramdown
+
+# Code highlighter settings
 highlighter: pygments
 
+# Sass settings
+# http://sass-lang.com/
+# http://jekyllrb.com/docs/assets/#sassscss
 sass:
   sass_dir: assets/styles/_scss
   style: compressed
 
+# Compress HTML
+# https://github.com/penibelst/jekyll-compress-html
 compress_html:
   clippings: all
-  comments: ["<!-- ", " -->"]
+  comments:
+  - "<!-- "
+  - " -->"
