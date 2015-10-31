@@ -1,15 +1,30 @@
 ---
 layout: default
 ---
-<div class="post">
 
+<div class="post">
   <header class="post-header">
     <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+    <div class="meta">
+      <dl>
+        <dt>date</dt>
+        <dd>{{ page.date | date: "%b %-d, %Y" }}</dd>
+      </dl>
+
+      {% if page.tags.size > 0 %}
+        <dl class="tags">
+          <dt>Tags</dt>
+          {% for tag in page.tags %}
+            <dd>
+              <a href="/tags/#{{ tag }}">{{ tag }}</a>
+            </dd>
+          {% endfor %}
+        </dl>
+      {% endif %}
+    </div>
   </header>
 
   <article class="post-content">
-  {{ content }}
+   {{ content }}
   </article>
-
 </div>
