@@ -35,3 +35,58 @@ body {
     color: #555;
 }
 
+.siteHeader {
+    padding: 10rem 0 8rem;
+    border-bottom: .1rem solid #eee;
+
+    .logo {
+        width: 16rem;
+        margin: 0 auto;
+
+        a {
+            display: block;
+
+            .symbol {
+                display: block;
+                width: 12rem;
+                height: 8rem;
+                margin: 0 auto 1.6rem;
+
+                .note {
+                    transition: fill .2s;
+                }
+            }
+
+            .logotype {
+                display: block;
+
+                path {
+                    transition: fill .2s;
+                }
+            }
+
+            &:hover {
+                .note {
+                    fill: #3595c8 !important;
+                }
+
+                .ht path {
+                    fill: #555 !important;
+                }
+
+                .nt path {
+                    fill: #666 !important;
+                }
+            }
+        }
+    }
+
+    .tagline {
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        text-align: center;
+        color: #999;
+        cursor: default;
+    }
+}
+
