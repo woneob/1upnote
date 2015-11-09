@@ -90,3 +90,17 @@ body {
     }
 }
 
+.siteFooter {
+    font-size: 1.2rem;
+    padding: 2rem;
+    text-align: center;
+    color: #808080;
+
+    a {
+        color: #aaa;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

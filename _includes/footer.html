@@ -1,14 +1,8 @@
-<footer class="footer">
-  <div class="wrap">
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
-    <div class="footer-col-1 column">
-      <ul>
-        <li>{{ site.title }}</li>
-        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-      </ul>
-    </div>
- </div>
+<footer class="siteFooter">
+  <p>
+    &copy; {{ site.time | date: '%Y' }} {{ site.author.name | append: '.'}}
+    Hosted on <a href="http://github.com">GitHub</a> and powered by <a href="http://jekyllrb.com/">Jekyll</a>.
+  </p>
 </footer>
 
 <script src="/assets/scripts/libs/jquery-2.1.4.min.js"></script>
