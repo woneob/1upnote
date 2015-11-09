@@ -23,3 +23,15 @@ layout: null
 $base: '/assets/images';
 $ui: $base + '/ui';
 
+html {
+    background-color: #fff;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.4rem;
+    line-height: 1.2;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #555;
+}
+
