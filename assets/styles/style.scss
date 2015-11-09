@@ -19,3 +19,7 @@ layout: null
 @import 'fonts';
 @import 'defaults';
 @import 'pygments';
+
+$base: '/assets/images';
+$ui: $base + '/ui';
+
