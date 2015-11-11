@@ -2,7 +2,11 @@
 layout: null
 ---
 
+# Robots.txt
+# http://www.robotstxt.org/
 User-agent: *
 Disallow:
 
+# Sitemap
+# http://www.sitemaps.org/protocol.html
 Sitemap: {{ site.url }}/sitemap.xml
