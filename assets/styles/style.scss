@@ -96,6 +96,19 @@ body {
     }
 }
 
+.siteContent {
+    background-color: #fff;
+
+    .contentWrap {
+        box-sizing: border-box;
+        max-width: 80rem;
+        min-height: 30rem;
+        margin: 0 auto;
+        padding: 1rem;
+        font-size: 1.4rem;
+    }
+}
+
 .siteFooter {
     font-size: 1.2rem;
     padding: 2rem;
