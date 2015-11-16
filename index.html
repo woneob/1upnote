@@ -10,7 +10,7 @@ permalink: /
     {% if site.posts.size > 0 %}
       {% for post in site.posts %}
         <li>
-          <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
 
           {% if post.tags.size > 0 %}
           <span class="post-tags">
