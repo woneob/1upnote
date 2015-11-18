@@ -1,7 +1,7 @@
 (function(google) {
   google.load('search', '1', {
     language: 'en',
-    style: google.loader.themes.V2_DEFAULT
+    nocss: true
   });
 
   google.setOnLoadCallback(function() {
