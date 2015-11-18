@@ -2,7 +2,7 @@
 title: 1upnote
 tagline: UI/UX blog for advanced web designers
 baseurl: ''
-url: http://1upnote.com
+url: https://1upnote.com
 permalink: /:title
 timezone: Asia/Seoul
 version: 0.0.1
