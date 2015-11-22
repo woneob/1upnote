@@ -3,7 +3,7 @@ $fontPath: "/assets/fonts";
 @font-face {
     $nanumBG: $fontPath + "/nanumbarungothicregular";
 
-    font-family: 'nanum-barun-gothic';
+    font-family: "nanum-barun-gothic";
     src: url("#{$nanumBG}.eot");
     src: url("#{$nanumBG}.eot?#iefix") format("embedded-opentype"),
         url("#{$nanumBG}.woff2") format("woff2"),
