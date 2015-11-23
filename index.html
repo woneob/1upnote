@@ -6,8 +6,8 @@ permalink: /
 ---
 
 <div class="home">
-  <ul class="posts">
-    {% if site.posts.size > 0 %}
+  {% if site.posts.size > 0 %}
+    <ul class="posts">
       {% for post in site.posts %}
         <li>
           <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
@@ -22,8 +22,8 @@ permalink: /
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </li>
       {% endfor %}
-    {% else %}
-      <p class="empty">No posts yet</p>
-    {% endif %}
-  </ul>
+    </ul>
+  {% else %}
+    <p class="empty">No posts yet</p>
+  {% endif %}
 </div>
