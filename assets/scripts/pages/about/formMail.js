@@ -1,14 +1,8 @@
 ;(function($) {
   $.fn.formMail = function() {
-    var $form = this.eq(0);
+    var $forms = this;
 
-    if (!$form.length) {
-      return;
-    }
-
-    var formSubmit = function(e) {
-      e.preventDefault();
-
+    var formSubmit = function($form) {
       var url = $form.attr('action');
       var data = $form.serialize();
 
@@ -28,7 +22,14 @@
       });
     };
 
-    $form.on('submit', formSubmit);
+    return $forms.each(function() {
+      var $this = $(this);
+
+      $this.on('submit', function(e) {
+        e.preventDefault();
+        formSubmit($this);
+      });
+    });
   };
 
   $('#contactForm').formMail();
