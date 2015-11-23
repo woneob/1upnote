@@ -5,4 +5,19 @@ pageId: about
 permalink: /about/
 weight: 2
 sitemap: false
+scripts:
+- /assets/scripts/pages/about/formMail.js
 ---
+
+<div class="contact">
+  <div class="social">
+  </div>
+  <div class="formMail">
+    <form id="contactForm" action="//formspree.io/1up@1upz.com" method="post">
+      <input type="text" name="name" placeholder="Your Name">
+      <input type="email" name="_replyto" placeholder="Your email">
+      <textarea name="message" rows="5" placeholder="Message"></textarea>
+      <input type="submit" value="Send">
+    </form>
+  </div>
+</div>

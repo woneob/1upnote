@@ -122,3 +122,38 @@ $blue: '#3fa1d5';
         }
     }
 }
+
+.contact {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+
+    .social {
+        display: table-cell;
+    }
+
+    .formMail {
+        display: table-cell;
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            box-sizing: border-box;
+            display: block;
+            width: 100%;
+            margin-bottom: .4rem;
+            padding: .8rem 1rem;
+            border: .1rem solid #ccc;
+            outline: none;
+
+            &:focus {
+                border-color: #aaa;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    }
+}
+
