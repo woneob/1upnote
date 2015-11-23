@@ -87,3 +87,16 @@ input {
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
 }
+
+textarea,
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="button"],
+input[type="submit"] {
+     -webkit-appearance: none;
+     appearance: none;
+     border-radius: 0;
+}
