@@ -13,3 +13,8 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     color: #555;
 }
+
+// Remove default cancel button
+input[type="search"]::-webkit-input-placeholder {
+    display: none;
+}
