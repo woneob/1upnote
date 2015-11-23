@@ -13,7 +13,7 @@ scripts:
   <div class="social">
   </div>
   <div class="formMail">
-    <form id="contactForm" action="//formspree.io/1up@1upz.com" method="post">
+    <form id="contactForm" action="{{ site.author.email | prepend: '//formspree.io/'}}" method="post">
       <input type="text" name="name" placeholder="Your Name">
       <input type="email" name="_replyto" placeholder="Your email">
       <textarea name="message" rows="5" placeholder="Message"></textarea>
