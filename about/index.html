@@ -11,6 +11,20 @@ scripts:
 
 <div class="contact">
   <div class="social">
+    <dl>
+      <dt>twitter</dt>
+      <dd>
+        <a href="{{ site.author.twitter | prepend: '//twitter.com/' }}" target="_blank">
+          {{ site.author.twitter | prepend: '@' }}
+        </a>
+      </dd>
+      <dt>github</dt>
+      <dd>
+        <a href="{{ site.author.github | prepend: '//github.com/' }}" target="_blank">
+          {{ site.author.github }}
+        </a>
+      </dd>
+    </ul>
   </div>
   <div class="formMail">
     <form id="contactForm" action="{{ site.author.email | prepend: '//formspree.io/'}}" method="post">
