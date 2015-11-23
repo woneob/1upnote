@@ -10,8 +10,8 @@ layout: null
 |_|.___/|_|
 
 
-/* TEAM */
-Your title: {{ site.author.name }}
+/* AUTHOR */
+Name: {{ site.author.name }}
 Email: {{ site.author.email }}
 Twitter: {{ site.author.twitter | prepend: '@'}}
 Github: {{ site.author.github | prepend: 'https://github.com/' }}
