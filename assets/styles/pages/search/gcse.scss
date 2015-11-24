@@ -6,3 +6,13 @@ layout: null
 .gsc-resultsHeader {
     display: none;
 }
+
+.gcsc-branding {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: #999;
+
+    .gcsc-branding-img-noclear {
+        vertical-align: middle;
+    }
+}
