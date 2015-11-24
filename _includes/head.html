@@ -91,9 +91,16 @@
   <!-- Canonical -->
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="RSS feed for {{ site.title }}" href="/feed.xml">
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/assets/styles/style.css">
 
-  <!-- RSS Feed -->
-  <link rel="alternate" type="application/rss+xml" title="RSS feed for {{ site.title }}" href="/feed.xml">
+  <!-- Load each unique page's CSS -->
+  {% if page.styles.size > 0 %}
+    {% for href in page.styles %}
+      <link rel="stylesheet" href="{{ href }}">
+    {% endfor %}
+  {% endif %}
 </head>
