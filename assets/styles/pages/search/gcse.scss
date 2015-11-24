@@ -3,7 +3,11 @@ layout: null
 ---
 
 .gsc-tabsAreaInvisible,
-.gsc-resultsHeader {
+.gsc-resultsHeader,
+.gsc-thumbnail-inside,
+.gsc-url-top,
+.gs-visibleUrl-short,
+.gs-watermark {
     display: none;
 }
 
