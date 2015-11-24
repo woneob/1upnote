@@ -15,6 +15,30 @@ layout: null
     margin-bottom: 2rem;
 }
 
+div.gs-title {
+    margin-bottom: .8rem;
+
+    a.gs-title {
+        font-family: NanumBarunGothic, "나눔바른고딕", nanum-barun-gothic, sans-serif;
+        font-size: 2.5rem;
+        line-height: 1.2;
+        font-weight: normal;
+        color: #5c6062;
+
+        b,
+        strong {
+            font-weight: normal;
+        }
+
+        &:hover,
+        &:focus {
+            outline: none;
+            border-bottom: .1rem dotted #aaa;
+            color: #333;
+        }
+    }
+}
+
 .gcsc-branding {
     margin-top: 2rem;
     font-size: 1.1rem;
