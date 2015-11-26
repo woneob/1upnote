@@ -54,8 +54,25 @@ div.gs-title {
     color: #888;
 }
 
-.gcsc-branding {
+.gsc-cursor-box {
     margin-top: 2rem;
+    text-align: center;
+
+    .gsc-cursor {
+        display: inline;
+
+        .gsc-cursor-page {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .gsc-cursor-current-page {
+            font-weight: bold;
+            color: #3fa1d5;
+        }
+    }
+}
+
 .gcsc-branding {
     position: absolute;
     top: 0;
