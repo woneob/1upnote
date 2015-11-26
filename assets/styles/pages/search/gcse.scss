@@ -16,6 +16,10 @@ layout: null
     display: none;
 }
 
+.gsc-results-wrapper-visible {
+    position: relative;
+}
+
 .gsc-above-wrapper-area {
     margin-bottom: 2rem;
 }
@@ -52,6 +56,10 @@ div.gs-title {
 
 .gcsc-branding {
     margin-top: 2rem;
+.gcsc-branding {
+    position: absolute;
+    top: 0;
+    right: 0;
     font-size: 1.1rem;
     color: #999;
 
