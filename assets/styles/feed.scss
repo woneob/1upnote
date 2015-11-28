@@ -8,10 +8,13 @@ layout: null
     background-color: #fff;
 }
 
+channel > image,
 language,
 item description,
 item guid,
 lastBuildDate,
+managingEditor,
+webMaster,
 ttl {
     display: none;
 }
