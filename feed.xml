@@ -10,6 +10,11 @@ layout: null
     <description>{{ site.tagline | xml_escape }}</description>
     <link>{{ site.url }}{{ site.baseurl }}/</link>
     <language>{{ site.language.code }}</language>
+    <image>
+      <url>{{ '/assets/images/icons/favicon-192x192.png' | prepend: site.url }}</url>
+      <title>{{ site.title | xml_escape }}</title>
+      <link>{{ site.url }}{{ site.baseurl }}/</link>
+    </image>
     <lastBuildDate>{{ site.posts.first.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
     <managingEditor>{{ site.author.email }} ({{ site.author.name }})</managingEditor>
     <webMaster>{{ site.author.email }} ({{ site.author.name }})</webMaster>
