@@ -1,0 +1,70 @@
+---
+layout: null
+---
+
+:root {
+    display: block;
+    font: 62.5% sans-serif;
+    background-color: #fff;
+}
+
+language,
+item description,
+item guid,
+lastBuildDate,
+ttl {
+    display: none;
+}
+
+channel {
+    display: block;
+    padding: 1rem 1rem 1.6rem;
+
+    > title {
+        display: block;
+        font-size: 3rem;
+        text-transform: uppercase;
+        color: #333;
+    }
+
+    > description {
+        display: block;
+        font-size: 1.6rem;
+    }
+
+    > link {
+        display: block;
+        font-size: 1.2rem;
+        color: #999;
+    }
+}
+
+item {
+    display: block;
+    margin-top: 1rem;
+    padding: 1rem 1.6rem 1.6rem;
+    border: .1rem solid #ddd;
+
+    &:first-of-type {
+        margin-top: 2rem;
+    }
+
+    title {
+        display: block;
+        margin-bottom: .4rem;
+        font-size: 1.6rem;
+        letter-spacing: -.06rem;
+    }
+
+    pubDate {
+        display: block;
+        font-size: 1.2rem;
+        color: #666;
+    }
+
+    link {
+        display: block;
+        font-size: 1rem;
+        color: #999;
+    }
+}
