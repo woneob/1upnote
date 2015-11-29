@@ -20,6 +20,10 @@ permalink: /
           </span>
           {% endif %}
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+
+          {% if post.excerpt %}
+            <p class="excerpt">{{ post.excerpt | truncatewords: 30}}</p>
+          {% endif %}
         </li>
       {% endfor %}
     </ul>
