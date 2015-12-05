@@ -7,3 +7,7 @@
     <script src="{{ src }}"></script>
   {% endfor %}
 {% endif %}
+
+{% if page.path contains '_posts' %}
+  {% include json-ld.html %}
+{% endif %}

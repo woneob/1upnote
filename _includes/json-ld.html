@@ -1,0 +1,23 @@
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "url": "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}",
+    "author":{
+      "@type": "Person",
+      "name": "{{ site.author.name }}"
+    },
+    "headline": "{{ page.title }}",
+    "image":
+      {% if page.coverImage %}
+        "{{ page.coverImage | prepend: site.baseurl | prepend: site.url }}"
+      {% else %}
+        "{{ '/assets/images/icons/apple-touch-icon.png' | prepend: site.baseurl | prepend: site.url }}"
+      {% endif %}
+    ,
+    "datePublished": "{{ page.date | date: '%Y-%m-%dT%H:%M:%S%z' }}",
+    "description": "{{ page.description }}",
+    "articleBody": "{{ page.content | strip_html }}",
+    "Publisher":"{{ site.title }}"
+  }
+</script>
