@@ -13,17 +13,22 @@ permalink: /
           <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
 
           {% if post.tags.size > 0 %}
-          <span class="post-tags">
-            {% for tag in post.tags %}
-              <a href="/tags/#{{ tag }}">{{ tag }}</a>
-            {% endfor %}
-          </span>
+            <span class="post-tags">
+              {% for tag in post.tags %}
+                <a href="/tags/#{{ tag }}">{{ tag }}</a>
+              {% endfor %}
+            </span>
           {% endif %}
+
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 
-          {% if post.excerpt %}
-            <p class="excerpt">{{ post.excerpt | truncatewords: 30}}</p>
-          {% endif %}
+          <p class="excerpt">
+            {% if post.summary %}
+              {{ post.summary }}
+            {% else %}
+              {{ post.excerpt | truncatewords: 30}}
+            {% endif %}
+          </p>
         </li>
       {% endfor %}
     </ul>
