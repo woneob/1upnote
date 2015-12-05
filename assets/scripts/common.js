@@ -4,6 +4,9 @@
 
   // Enable CSS active pseudo styles in Mobile Safari
   $doc.on({
-    touchstart: function() {}
+    touchstart: function() {},
+    ready: function() {
+      FastClick.attach(doc.body);
+    }
   });
 })(jQuery, window, document);
