@@ -121,7 +121,7 @@ $blue: '#3fa1d5';
                 }
 
                 h2 {
-                    margin-bottom: 1.4rem;
+                    margin-bottom: .6rem;
                     font-family: NanumBarunGothic, "나눔바른고딕", nanum-barun-gothic, sans-serif;
                     font-size: 2.2rem;
                     line-height: 1.2;
@@ -141,8 +141,17 @@ $blue: '#3fa1d5';
                 }
 
                 .meta {
+                    position: relative;
+                    padding-left: 1rem;
                     font-size: 1.3rem;
                     color: #999;
+
+                    &:before {
+                        position: absolute;
+                        top: 0;
+                        left: .2rem;
+                        content: "\2022";
+                    }
 
                     a {
                         color: #666;
