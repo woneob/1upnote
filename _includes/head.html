@@ -67,7 +67,7 @@
   {% endif %}
 
   <!-- Make the app title different than the page title. -->
-  <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+  <meta name="apple-mobile-web-app-title" content="{{ site.title | xml_escape }}">
 
   <!-- Allow web app to be run in full-screen mode. -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -92,7 +92,7 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
   <!-- RSS Feed -->
-  <link rel="alternate" type="application/rss+xml" title="RSS feed for {{ site.title }}" href="/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS feed for {{ site.title | xml_escape }}" href="/feed.xml">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/assets/styles/style.css">
