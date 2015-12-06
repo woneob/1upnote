@@ -15,9 +15,9 @@
 
   <!-- Description -->
   {% if page.description %}
-    <meta name="description" content="{{ page.description }}">
+    <meta name="description" content="{{ page.description | xml_escape }}">
   {% else %}
-    <meta name="description" content="{{ site.tagline }}">
+    <meta name="description" content="{{ site.tagline | xml_escape }}">
   {% endif %}
 
   <!-- Author of a page -->
@@ -43,9 +43,9 @@
   {% endif %}
 
   {% if page.description %}
-    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:description" content="{{ page.description | xml_escape }}">
   {% else %}
-    <meta property="og:description" content="{{ site.tagline }}">
+    <meta property="og:description" content="{{ site.tagline | xml_escape }}">
   {% endif %}
 
   <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
