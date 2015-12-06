@@ -5,22 +5,30 @@ pageId: home
 permalink: /
 ---
 
-<div class="home">
+<div class="mainList">
   {% if site.posts.size > 0 %}
-    <ul class="posts">
+    <div class="posts">
       {% for post in site.posts %}
-        <li>
-          <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+        <div class="post">
+          <h2>
+             <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h2>
 
-          {% if post.tags.size > 0 %}
-            <span class="post-tags">
-              {% for tag in post.tags %}
-                <a href="/tags/#{{ tag }}">{{ tag }}</a>
-              {% endfor %}
-            </span>
-          {% endif %}
+          <dl class="meta date">
+            <dt>date</dt>
+            <dd>{{ post.date | date: "%B %-d, %Y" }}</dd>
+          </dl>
 
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <dl class="meta tags">
+            {% if post.tags.size > 0 %}
+              <dt>tags</dt>
+              <dd>
+                {% for tag in post.tags %}
+                  <a href="/tags/#{{ tag }}">{{ tag }}</a>
+                {% endfor %}
+              </dd>
+            {% endif %}
+          </dl>
 
           <p class="excerpt">
             {% if post.summary %}
@@ -29,9 +37,9 @@ permalink: /
               {{ post.excerpt | truncatewords: 30}}
             {% endif %}
           </p>
-        </li>
+        </div>
       {% endfor %}
-    </ul>
+    </div>
   {% else %}
     <p class="empty">No posts yet</p>
   {% endif %}
