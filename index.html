@@ -19,16 +19,16 @@ permalink: /
             <dd>{{ post.date | date: "%B %-d, %Y" }}</dd>
           </dl>
 
-          <dl class="meta tags">
-            {% if post.tags.size > 0 %}
+          {% if post.tags.size > 0 %}
+            <dl class="meta tags">
               <dt>tags</dt>
               <dd>
                 {% for tag in post.tags %}
                   <a href="/tags/#{{ tag }}">{{ tag }}</a>
                 {% endfor %}
               </dd>
-            {% endif %}
-          </dl>
+            </dl>
+          {% endif %}
 
           <p class="excerpt">
             {% if post.summary %}
