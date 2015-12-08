@@ -188,9 +188,10 @@ $blue: '#3fa1d5';
 }
 
 .siteFooter {
-    font-size: 1.2rem;
-    padding: 2rem;
+    border-top: .1rem solid #eee;
+    padding: 3rem 2rem;
     text-align: center;
+    font-size: 1.2rem;
     color: #808080;
 
     a {
