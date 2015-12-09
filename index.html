@@ -16,7 +16,13 @@ permalink: /
 
           <dl class="meta date">
             <dt>date</dt>
-            <dd>{{ post.date | date: "%B %-d, %Y" }}</dd>
+            <dd>
+              <time
+                datetime="{{ post.date | date_to_xmlschema }}"
+                title="{{ post.date | date: '%F' }}">
+                {{ post.date | date: "%B %-d, %Y" }}
+              </time>
+            </dd>
           </dl>
 
           {% if post.tags.size > 0 %}
