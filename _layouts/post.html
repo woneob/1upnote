@@ -17,7 +17,7 @@ pageId: post
           <dt>Tags</dt>
           {% for tag in page.tags %}
             <dd>
-              <a href="/tags/#{{ tag }}">{{ tag }}</a>
+              <a href="/tags/#{{ tag }}" rel="tag">{{ tag }}</a>
             </dd>
           {% endfor %}
         </dl>
