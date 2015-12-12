@@ -23,5 +23,10 @@ layout: compress
 
     <!-- Javascripts -->
     {% include scripts.html %}
+
+    <!-- Include JSON-LD if directory is "_post" -->
+    {% if page.path contains '_posts' %}
+      {% include json-ld.html %}
+    {% endif %}
   </body>
 </html>
