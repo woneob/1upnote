@@ -29,6 +29,10 @@ $ui: $base + '/ui';
 // colors
 $blue: '#3fa1d5';
 
+.svgSymbols {
+    display: none;
+}
+
 .siteHeader {
     padding: 10rem 0 8rem;
     border-bottom: .1rem solid #eee;
@@ -47,32 +51,45 @@ $blue: '#3fa1d5';
                 margin: 0 auto 1.6rem;
 
                 .note {
+                    fill: #3fa1d5;
                     transition: fill .2s;
+                }
+
+                .number {
+                    fill: #fff;
                 }
             }
 
             .logotype {
                 display: block;
+                width: 16rem;
+                height: 3.2rem;
 
-                path {
-                    transition: fill .2s;
+                .logotype-1up {
+                    fill: #222;
+                    transition: fill .3s;
+                }
+
+                .logotype-note {
+                    fill: #888;
+                    transition: fill .3s;
                 }
             }
 
             &:hover {
                 .symbol {
                     .note {
-                        fill: #3595c8 !important;
+                        fill: #3595c8;
                     }
                 }
 
                 .logotype {
-                    .text-1up {
-                        fill: #555 !important;
+                    .logotype-1up {
+                        fill: #555;
                     }
 
-                    .text-note {
-                        fill: #666 !important;
+                    .logotype-note {
+                        fill: #666;
                     }
                 }
             }
