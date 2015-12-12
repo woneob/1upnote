@@ -3,18 +3,25 @@ layout: compress
 ---
 
 <html lang="{{ site.language.code }}">
+  <!-- head -->
   {% include head.html %}
 
   <body{% if page.pageId %} class="{{ page.pageId | prepend: 'page-' }}"{% endif %}>
+    <!-- Header -->
     {% include header.html %}
 
     <main class="siteContent">
       <article class="contentWrap">
+
+        <!-- Content block -->
         {{ content }}
       </article>
     </main>
 
+    <!-- Footer -->
     {% include footer.html %}
+
+    <!-- Javascripts -->
     {% include scripts.html %}
   </body>
 </html>
