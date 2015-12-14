@@ -17,17 +17,10 @@ layout: null
 /* Imports for all settings */
 @import 'mixins';
 @import 'reset';
+@import 'variables';
 @import 'fonts';
 @import 'defaults';
 @import 'pygments';
-
-/* Variables */
-// Assets path
-$base: '/assets/images';
-$ui: $base + '/ui';
-
-// colors
-$blue: '#3fa1d5';
 
 .svgSymbols {
     display: none;
