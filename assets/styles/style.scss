@@ -15,12 +15,12 @@ layout: null
 */
 
 /* Imports for all settings */
-@import 'mixins';
-@import 'reset';
-@import 'variables';
-@import 'fonts';
-@import 'defaults';
-@import 'pygments';
+@import "mixins";
+@import "reset";
+@import "variables";
+@import "fonts";
+@import "defaults";
+@import "pygments";
 
 .siteHeader {
     padding: 10rem 0 8rem;
@@ -257,9 +257,9 @@ layout: null
 }
 
 @media only screen and (max-width: 35em) {
-    @import 'smallDevice';
+    @import "smallDevice";
 }
 
 @media print {
-    @import 'print';
+    @import "print";
 }
