@@ -41,6 +41,16 @@ textarea {
     }
 }
 
+a,
+button,
+input,
+select,
+textarea,
+label,
+summary {
+    touch-action: mainpulation;
+}
+
 .svgSymbols {
     display: none;
 }
