@@ -13,11 +13,15 @@ weight: 3
 {% endcapture %}
 {% assign sortedtags = tags | split:' ' | sort %}
 
-{% for tag in sortedtags %}
-  <h3 id="{{ tag }}">{{ tag }}</h3>
-  <ul>
-  {% for post in site.tags[tag] %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+{% if sortedtags.size > 0 %}
+  {% for tag in sortedtags %}
+    <h3 id="{{ tag }}">{{ tag }}</h3>
+    <ul>
+    {% for post in site.tags[tag] %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+    </ul>
   {% endfor %}
-  </ul>
-{% endfor %}
+{% else %}
+  <p class="empty">No tags yet</p>
+{% endif %}
