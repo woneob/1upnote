@@ -15,84 +15,160 @@
 
   <!-- Description -->
   {% if page.description %}
-    <meta name="description" content="{{ page.description | xml_escape }}">
+    <meta
+      name="description"
+      content="{{ page.description | xml_escape }}">
   {% else %}
-    <meta name="description" content="{{ site.tagline | xml_escape }}">
+    <meta
+      name="description"
+      content="{{ site.tagline | xml_escape }}">
   {% endif %}
 
   <!-- Author of a page -->
-  <meta name="author" content="{{ site.author.name }}">
+  <meta
+    name="author"
+    content="{{ site.author.name }}">
 
   <!-- Viewport -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
   <!-- Open Graph -->
-  <meta property="og:locale" content="{{ site.language.locale}}">
-  <meta property="og:site_name" content="{{ site.title }}">
+  <meta
+    property="og:locale"
+    content="{{ site.language.locale }}">
+
+  <meta
+    property="og:site_name"
+    content="{{ site.title }}">
 
   {% if page.url == '/' %}
-    <meta property="og:type" content="website">
+    <meta
+      property="og:type"
+      content="website">
   {% else %}
-    <meta property="og:type" content="article">
+    <meta
+      property="og:type"
+      content="article">
   {% endif %}
 
   {% if page.title and page.url != '/' %}
-    <meta property="og:title" content="{{ page.title }}">
+    <meta
+      property="og:title"
+      content="{{ page.title }}">
   {% else %}
-    <meta property="og:title" content="{{ site.title }}">
+    <meta
+      property="og:title"
+      content="{{ site.title }}">
   {% endif %}
 
   {% if page.description %}
-    <meta property="og:description" content="{{ page.description | xml_escape }}">
+    <meta
+      property="og:description"
+      content="{{ page.description | xml_escape }}">
   {% else %}
-    <meta property="og:description" content="{{ site.tagline | xml_escape }}">
+    <meta
+      property="og:description"
+      content="{{ site.tagline | xml_escape }}">
   {% endif %}
 
-  <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <meta
+    property="og:url"
+    content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
   {% if page.coverImage %}
-    <meta property="og:image" content="{{ page.coverImage | prepend: site.url }}">
+    <meta
+      property="og:image"
+      content="{{ page.coverImage | prepend: site.url }}">
   {% else %}
-    <meta property="og:image" content="{{ site.url }}/assets/images/icons/ms-icon-310x310.png">
+    <meta
+      property="og:image"
+      content="{{ site.url }}/assets/images/icons/ms-icon-310x310.png">
   {% endif %}
 
   <!-- Twitter Card -->
-  <meta name="twitter:site" content="{{ site.author.twitter | prepend: '@'}}">
-  <meta name="twitter:creator" content="{{ site.author.twitter | prepend: '@'}}">
+  <meta
+    name="twitter:site"
+    content="{{ site.author.twitter | prepend: '@'}}">
+
+  <meta
+    name="twitter:creator"
+    content="{{ site.author.twitter | prepend: '@'}}">
 
   {% if page.coverImage %}
-    <meta name="twitter:card" content="summary_large_image">
+    <meta
+      name="twitter:card"
+      content="summary_large_image">
   {% else %}
-    <meta name="twitter:card" content="summary">
+    <meta
+      name="twitter:card"
+      content="summary">
   {% endif %}
 
   <!-- Make the app title different than the page title. -->
-  <meta name="apple-mobile-web-app-title" content="{{ site.title | xml_escape }}">
+  <meta
+    name="apple-mobile-web-app-title"
+    content="{{ site.title | xml_escape }}">
 
   <!-- Allow web app to be run in full-screen mode. -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes">
 
   <!-- Disable automatic phone number detection in Safari on iOS -->
-  <meta name="format-detection" content="telephone=no">
+  <meta
+    name="format-detection"
+    content="telephone=no">
 
   <!-- Humans.txt -->
-  <link type="text/plain" rel="author" href="/humans.txt">
+  <link
+    type="text/plain"
+    rel="author"
+    href="{{ '/humans.txt' | prepend: site.baseurl }}">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/assets/images/icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/icon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/icons/icon-96x96.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icons/icon-192x192.png">
+  <link
+    el="shortcut icon"
+    type="image/x-icon"
+    href="/assets/images/icons/favicon.ico">
+
+  <link rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/assets/images/icons/icon-16x16.png">
+
+  <link rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/assets/images/icons/icon-32x32.png">
+
+  <link rel="icon"
+    type="image/png"
+    sizes="96x96"
+    href="/assets/images/icons/icon-96x96.png">
+
+  <link rel="icon"
+    type="image/png"
+    sizes="192x192"
+    href="/assets/images/icons/icon-192x192.png">
 
   <!-- Apple Application Icons -->
-  <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
+  <link
+    rel="apple-touch-icon"
+    href="/assets/images/icons/apple-touch-icon.png">
 
   <!-- Canonical -->
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link
+    rel="canonical"
+    href="{{ page.url | replace:'index.html', '' | prepend: site.baseurl | prepend: site.url }}">
 
   <!-- RSS Feed -->
-  <link rel="alternate" type="application/rss+xml" title="RSS feed for {{ site.title | xml_escape }}" href="/feed.xml">
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS feed for {{ site.title | xml_escape }}"
+    href="/feed.xml">
 
   <!-- Stylesheet -->
   <link
