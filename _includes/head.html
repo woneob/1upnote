@@ -95,12 +95,12 @@
   <link rel="alternate" type="application/rss+xml" title="RSS feed for {{ site.title | xml_escape }}" href="/feed.xml">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/style.css{{ site.version | prepend: '?v=' }}">
 
   <!-- Load each unique page's CSS -->
   {% if page.styles.size > 0 %}
     {% for href in page.styles %}
-      <link rel="stylesheet" href="{{ href }}">
+      <link rel="stylesheet" href="{{ href }}{{ site.version | prepend: '?v=' }}">
     {% endfor %}
   {% endif %}
 </head>
