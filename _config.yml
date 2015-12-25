@@ -21,6 +21,10 @@ author:
   twitter: 1upz
   github: woneob
 
+# File pathes
+path:
+  css: /assets/styles
+
 # Exclude files from the production build
 exclude:
 - README.md
