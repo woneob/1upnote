@@ -24,6 +24,7 @@ author:
 # File pathes
 path:
   css: /assets/styles
+  img: /assets/images
 
 # Exclude files from the production build
 exclude:
