@@ -1,6 +1,6 @@
 # Website settings
 title: 1upnote
-tagline: UI/UX blog for advanced web designers
+tagline: Web design, development and UX
 baseurl: ''
 url: https://1upnote.com
 permalink: /:title
