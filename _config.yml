@@ -1,6 +1,9 @@
 # Website settings
 title: 1upnote
 tagline: Web design, development and UX
+description: >-
+  1upnote is a blog that focuses on standards-based design techniques,
+  useful UX information and expert tips for building effective user interfaces.
 baseurl: ''
 url: https://1upnote.com
 permalink: /:title
