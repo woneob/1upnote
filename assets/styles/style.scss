@@ -8,7 +8,7 @@ layout: null
  | | |_| |  _/
  |_|.___/|_|
 
- {{ site.title }} - {{ site.tagline }}
+ {{ site.title | upcase }} - {{ site.tagline }}
  Last post update's date: {{ site.posts.first.date | date: "%B %-d, %Y" }}
  Version: {{ site.version }}
 
