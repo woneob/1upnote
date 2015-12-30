@@ -1,6 +1,6 @@
-# 1UPNOTE
+# 1upnote
 
-This is the data for my blog, powered by [Jekyll](http://github.com/mojombo/jekyll) and deployed to [1UPNOTE](http://1upnote.com). It is automatically transformed by Jekyll into a static site whenever I push this repository to GitHub.
+This is the data for my blog, powered by [Jekyll](http://github.com/mojombo/jekyll) and deployed to [1upnote](http://1upnote.com). It is automatically transformed by Jekyll into a static site whenever I push this repository to GitHub.
 
 ## License
 
