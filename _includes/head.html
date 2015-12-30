@@ -56,11 +56,11 @@
   {% if page.title and page.url != '/' %}
     <meta
       property="og:title"
-      content="{{ page.title }}">
+      content="{{ page.title | xml_escape }}">
   {% else %}
     <meta
       property="og:title"
-      content="{{ site.title }}">
+      content="{{ site.title | xml_escape }}">
   {% endif %}
 
   {% if page.description %}
