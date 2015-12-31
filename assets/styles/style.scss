@@ -178,86 +178,84 @@ layout: null
             color: #999;
         }
 
-        h1 {
-            display: none;
-        }
+        .mainList {
+            .posts {
+                margin-top: 2rem;
 
-        .posts {
-            margin-top: 2rem;
+                .post {
+                    padding: 0 .6rem;
 
-            .post {
-                padding: 0 .6rem;
-
-                + .post {
-                    margin-top: 4rem;
-                }
-
-                h2 {
-                    margin-bottom: .6rem;
-                    font-family: NanumBarunGothic, "나눔바른고딕", nanum-barun-gothic, sans-serif;
-                    font-size: 2.2rem;
-                    line-height: 1.2;
-                    letter-spacing: -.02rem;
-                    font-weight: normal;
-
-                    a {
-                        color: #5c6062;
-
-                        &:hover,
-                        &:focus {
-                            outline: none;
-                            border-bottom: .1rem dotted #aaa;
-                            color: #333;
-                        }
-                    }
-                }
-
-                .meta {
-                    position: relative;
-                    padding-left: 1rem;
-                    font-size: 1.3rem;
-                    color: #999;
-
-                    &:before {
-                        position: absolute;
-                        top: 0;
-                        left: .2rem;
-                        content: "\2022";
+                    + .post {
+                        margin-top: 4rem;
                     }
 
-                    a {
-                        color: #7a7a7a;
+                    h2 {
+                        margin-bottom: .6rem;
+                        font-family: NanumBarunGothic, "나눔바른고딕", nanum-barun-gothic, sans-serif;
+                        font-size: 2.2rem;
+                        line-height: 1.2;
+                        letter-spacing: -.02rem;
+                        font-weight: normal;
 
-                        &:not(:last-child):after {
-                            content: ",";
-                        }
+                        a {
+                            color: #5c6062;
 
-                        &:hover {
-                            text-decoration: underline;
+                            &:hover,
+                            &:focus {
+                                outline: none;
+                                border-bottom: .1rem dotted #aaa;
+                                color: #333;
+                            }
                         }
                     }
 
-                    dt {
-                        display: inline-block;
+                    .meta {
+                        position: relative;
+                        padding-left: 1rem;
+                        font-size: 1.3rem;
+                        color: #999;
 
-                        &:after {
-                            content: ":";
-                            margin-right: .6rem;
+                        &:before {
+                            position: absolute;
+                            top: 0;
+                            left: .2rem;
+                            content: "\2022";
+                        }
+
+                        a {
+                            color: #7a7a7a;
+
+                            &:not(:last-child):after {
+                                content: ",";
+                            }
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+
+                        dt {
+                            display: inline-block;
+
+                            &:after {
+                                content: ":";
+                                margin-right: .6rem;
+                            }
+                        }
+
+                        dd {
+                            display: inline-block;
+                            margin-right: 1.2rem;
                         }
                     }
 
-                    dd {
-                        display: inline-block;
-                        margin-right: 1.2rem;
+                    .excerpt {
+                        margin-top: 1.4rem;
+                        font-size: 1.4rem;
+                        line-height: 1.4;
+                        text-align: justify;
+                        color: #666;
                     }
-                }
-
-                .excerpt {
-                    margin-top: 1.4rem;
-                    font-size: 1.4rem;
-                    line-height: 1.4;
-                    text-align: justify;
-                    color: #666;
                 }
             }
         }
