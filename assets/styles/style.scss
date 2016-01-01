@@ -335,6 +335,11 @@ layout: null
                         margin-top: 1.2rem;
                     }
                 }
+
+                a {
+                    color: darken(#3fa1d5, 10%);
+                    text-decoration: underline;
+                }
             }
         }
     }
