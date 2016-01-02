@@ -340,6 +340,21 @@ layout: null
                     color: darken(#3fa1d5, 10%);
                     text-decoration: underline;
                 }
+
+                .highlight {
+                    margin: 1rem 0;
+                    border-radius: .5rem;
+
+
+                    pre {
+                        overflow-x: auto;
+
+                        code {
+                            font-size: 1.2rem;
+                            font-family: 'Consolas', monospace;
+                        }
+                    }
+                }
             }
         }
     }
