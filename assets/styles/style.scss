@@ -341,6 +341,11 @@ layout: null
                     text-decoration: underline;
                 }
 
+                em,
+                strong {
+                    font-weight: bold;
+                }
+
                 code,
                 kbd {
                     display: inline-block;
