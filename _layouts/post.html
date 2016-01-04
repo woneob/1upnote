@@ -15,11 +15,11 @@ pageId: post
     {% if page.tags.size > 0 %}
       <dl class="meta tags">
         <dt>Tags</dt>
-        {% for tag in page.tags %}
-          <dd>
+        <dd>
+          {% for tag in page.tags %}
             <a href="/tags/#{{ tag }}" rel="tag">{{ tag }}</a>
-          </dd>
-        {% endfor %}
+          {% endfor %}
+        </dd>
       </dl>
     {% endif %}
   </header>
