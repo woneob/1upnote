@@ -346,6 +346,11 @@ layout: null
                     font-weight: bold;
                 }
 
+                abbr {
+                    border-bottom: .1rem dotted #999;
+                    cursor: default;
+                }
+
                 code,
                 kbd {
                     display: inline-block;
