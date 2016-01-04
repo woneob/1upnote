@@ -341,7 +341,8 @@ layout: null
                     text-decoration: underline;
                 }
 
-                code {
+                code,
+                kbd {
                     display: inline-block;
                     padding: .2rem .5rem .1rem;
                     background-color: rgba(0,0,0,.05);
@@ -351,7 +352,14 @@ layout: null
                     font-size: 1.3rem;
                     line-height: 1;
                     font-family: 'Consolas', monospace;
+                }
+
+                code {
                     color: #ef4c4c;
+                }
+
+                kbd {
+                    color: #5a5a5a;
                 }
 
                 .highlight {
