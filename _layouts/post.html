@@ -9,7 +9,13 @@ pageId: post
 
     <dl class="meta date">
       <dt>date</dt>
-      <dd>{{ page.date | date: "%b %-d, %Y" }}</dd>
+      <dd>
+        <time
+          datetime="{{ page.date | date_to_xmlschema }}"
+          title="{{ page.date | date: '%F' }}">
+          {{ page.date | date: "%b %-d, %Y" }}
+        </time>
+      </dd>
     </dl>
 
     {% if page.tags.size > 0 %}
