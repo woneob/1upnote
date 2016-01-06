@@ -437,7 +437,7 @@ layout: null
         .archiveContent {
             h3 {
                 font-weight: normal;
-                font-size: 2rem;
+                font-size: 2.2rem;
                 line-height: 1.2;
                 font-family: NanumBarunGothic, "나눔바른고딕", nanum-barun-gothic, sans-serif;
                 letter-spacing: -.02rem;
@@ -445,10 +445,34 @@ layout: null
             }
 
             .posts {
-                margin-top; 1rem;
+                margin-top: .4rem;
+                font-size: 1.5rem;
 
                 + h3 {
-                    margin-top: 2.2rem;
+                    margin-top: 2.6rem;
+                }
+
+                li {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                a {
+                    white-space: nowrap;
+                    color: #5a5a5a;
+
+                    time {
+                        padding: .2rem 0 .2rem 1.4rem;
+                        width: 5rem;
+                        vertical-align: middle;
+                        white-space: nowrap;
+                        padding-right: 1rem;
+
+                        &:before {
+                            content: "\2022";
+                            margin-right: .4rem;
+                        }
+                    }
                 }
             }
         }
