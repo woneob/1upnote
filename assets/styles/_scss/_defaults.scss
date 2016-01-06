@@ -54,3 +54,9 @@ summary {
 .svgSymbols {
     display: none;
 }
+
+code,
+kbd {
+    letter-spacing: 0;
+    font-family: 'Consolas', monospace;
+}
