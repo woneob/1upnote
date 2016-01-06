@@ -433,6 +433,25 @@ layout: null
                 }
             }
         }
+
+        .archiveContent {
+            h3 {
+                font-weight: normal;
+                font-size: 2rem;
+                line-height: 1.2;
+                font-family: NanumBarunGothic, "나눔바른고딕", nanum-barun-gothic, sans-serif;
+                letter-spacing: -.02rem;
+                color: #4a4a4a;
+            }
+
+            .posts {
+                margin-top; 1rem;
+
+                + h3 {
+                    margin-top: 2.2rem;
+                }
+            }
+        }
     }
 }
 
