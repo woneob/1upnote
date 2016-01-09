@@ -52,6 +52,7 @@ highlighter: pygments
 # http://sass-lang.com/
 # http://jekyllrb.com/docs/assets/#sassscss
 sass:
+  add_charset: true
   sass_dir: assets/styles/_scss
   style: compressed
 
