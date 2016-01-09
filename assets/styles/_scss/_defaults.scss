@@ -57,6 +57,15 @@ summary {
     display: none;
 }
 
+h1,
+h2,
+h3,
+h4 {
+    font-weight: normal;
+    font-family: NanumBarunGothic, "나눔바른고딕", nanum-barun-gothic, sans-serif;
+    letter-spacing: -.02rem;
+}
+
 code,
 kbd {
     letter-spacing: 0;
