@@ -18,7 +18,7 @@ weight: 3
     {% for tag in sortedtags %}
       <h3 id="{{ tag }}">{{ tag }}</h3>
 
-      <ul>
+      <ul class="posts">
       {% for post in site.tags[tag] %}
         <li><a href="{{ post.url }}">{{ post.title }}</a></li>
       {% endfor %}
