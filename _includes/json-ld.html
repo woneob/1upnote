@@ -13,7 +13,7 @@
       {% if page.coverImage %}
         "{{ page.coverImage | prepend: site.baseurl | prepend: site.url }}"
       {% else %}
-        "{{ '/assets/images/icons/apple-touch-icon.png' | prepend: site.baseurl | prepend: site.url }}"
+        "{{ '/icons/apple-touch-icon.png' | prepend: site.path.img | prepend: site.baseurl | prepend: site.url }}"
       {% endif %}
     ,
     "datePublished": "{{ page.date | date: '%Y-%m-%dT%H:%M:%S%z' }}",
