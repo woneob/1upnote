@@ -348,6 +348,12 @@ layout: null
                     cursor: default;
                 }
 
+                sup {
+                    vertical-align: top;
+                    font-size: .8em;
+                    color: #888;
+                }
+
                 code,{
                     display: inline-block;
                     padding: .2rem .5rem .1rem;
