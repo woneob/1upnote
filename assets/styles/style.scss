@@ -379,6 +379,7 @@ layout: null
                     margin: 1rem 0;
                     padding: 1rem 1rem .2rem;
                     border-radius: .5rem;
+                    box-shadow: inset 0 0 1px rgba(0,0,0,.1);
 
                     pre {
                         padding-bottom: .8rem;
@@ -416,9 +417,13 @@ layout: null
                             border-radius: 0;
                             box-shadow: none;
                             font-size: 1.2rem;
-                            line-height: inherit;
+                            line-height: 1.3;
                             white-space: pre;
                             color: inherit;
+
+                            > * {
+                                font-size: 1.3rem;
+                            }
 
                             &::selection,
                             span::selection {
