@@ -1,6 +1,8 @@
 ---
 layout: null
+sitemap: false
 ---
+
 /* The humans responsible & colophon */
 /* humanstxt.org */
 

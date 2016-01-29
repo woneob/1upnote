@@ -38,10 +38,6 @@ exclude:
 - CNAME
 - LICENSE
 
-# Google sitemap generation
-gems:
-- jekyll-sitemap
-
 # Markdown settings
 markdown: kramdown
 
