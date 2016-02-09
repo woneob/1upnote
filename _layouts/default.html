@@ -6,11 +6,11 @@ layout: compress
   <!-- head -->
   {% include head.html %}
 
-  <body{% if page.pageId %} class="{{ page.pageId | prepend: 'page-' }}"{% endif %}>
     {% include globalNav.html %}
 
     <!-- Header -->
     {% include header.html %}
+  <body{% if page.pageId %} class="{{ page.pageId }}"{% endif %}>
 
     <main class="siteContent">
       <article class="contentWrap">
