@@ -1,0 +1,66 @@
+<div class="navigation">
+  <div class="navigationWrap">
+    <div class="homeCol">
+      <a href="{{ site.baseurl }}/" class="logoLink">
+        <svg
+          class="logotype"
+          viewBox="0 0 188 38"
+          aria-labelledby="gnb-logoTitle">
+
+          <title id="gnb-logoTitle">{{ site.title | xml_escape }}</title>
+
+          <use xlink:href="#logotype-1up" class="logotype-1up" />
+          <use xlink:href="#logotype-note" class="logotype-note" />
+        </svg>
+      </a>
+
+      {% if page.weight %}
+        <strong class="currentPage">{{ page.title }}</strong>
+      {% endif %}
+    </div>
+
+    <div class="menuCol">
+      <ul class="siteNav">
+        {% for weight in (1..10) %}
+          {% for p in site.pages %}
+            {% if p.weight == weight %}
+              <li
+                {% if p.url == page.url %}
+                  class="active"
+                {% endif %}>
+                <a href="{{ p.url }}">{{ p.title }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="searchCol">
+      <form
+        id="search"
+        method="get"
+        action="/search">
+
+        <div class="searchInputWrap">
+          <input
+            id="searchInput"
+            type="search"
+            name="q"
+            class="searchInput"
+            placeholder="Search 1upnote"
+            required>
+
+          <label
+            for="searchInput"
+            class="searchLabel">search</label>
+
+          <button
+            type="reset"
+            title="Cancel"
+            class="cancelButton">cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
