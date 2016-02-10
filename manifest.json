@@ -22,5 +22,5 @@ sitemap: false
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#3fa1d5"
+  "theme_color": "#3c424a"
 }
