@@ -10,7 +10,7 @@ sitemap: false
       <square70x70logo src="{{ site.path.img }}/icons/ms-icon-70x70.png" />
       <square150x150logo src="{{ site.path.img }}/icons/ms-icon-150x150.png" />
       <square310x310logo src="{{ site.path.img }}/icons/ms-icon-310x310.png" />
-      <TileColor>#3fafd6</TileColor>
+      <TileColor>#3c424a</TileColor>
     </tile>
   </msapplication>
 </browserconfig>
