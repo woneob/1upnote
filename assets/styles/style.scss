@@ -386,10 +386,11 @@ sitemap: false
                     color: #666;
                 }
 
-                .highlight {
+                pre {
                     margin: 1rem 0;
                     padding: 1rem 1rem .2rem;
                     border-radius: .5rem;
+                    background-color: #f8f8f8;
                     box-shadow: inset 0 0 1px rgba(0,0,0,.1);
                     font-size: 1.3rem;
                     line-height: 1.3;
