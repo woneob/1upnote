@@ -6,11 +6,12 @@ layout: compress
   <!-- head -->
   {% include head.html %}
 
-    {% include globalNav.html %}
-
-    <!-- Header -->
-    {% include header.html %}
   <body{% if page.pageId %} class="{{ page.pageId }}"{% endif %}>
+    <!-- Site header -->
+    {% include header.html %}
+
+    <!-- Navigation -->
+    {% include navigation.html %}
 
     <main class="siteContent">
       <article class="contentWrap">
