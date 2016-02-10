@@ -7,9 +7,10 @@ sitemap: false
 <browserconfig>
   <msapplication>
     <tile>
-      <square70x70logo src="{{ site.path.img }}/icons/ms-icon-70x70.png" />
-      <square150x150logo src="{{ site.path.img }}/icons/ms-icon-150x150.png" />
-      <square310x310logo src="{{ site.path.img }}/icons/ms-icon-310x310.png" />
+      <square70x70logo src="{{ site.path.img }}/icons/mstile-70x70.png" />
+      <square150x150logo src="{{ site.path.img }}/icons/mstile-150x150.png" />
+      <square310x310logo src="{{ site.path.img }}/icons/mstile-310x310.png" />
+      <wide310x150logo src="{{ site.path.img }}/icons/mstile-310x150.png"/>
       <TileColor>#3c424a</TileColor>
     </tile>
   </msapplication>
