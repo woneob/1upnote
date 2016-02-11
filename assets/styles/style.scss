@@ -479,9 +479,15 @@ sitemap: false
 
                 h1 {
                     margin-bottom: .6rem;
-                    font-size: 2.6rem;
+                    font-size: 2.2rem;
                     line-height: 1.2;
+                    letter-spacing: -.03em;
                     color: #4a4a4a;
+                    word-break: keep-all;
+
+                    &:first-line {
+                        font-size: 3rem;
+                    }
                 }
 
                 .meta {
