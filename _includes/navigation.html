@@ -21,17 +21,14 @@
 
     <div class="menuCol">
       <ul class="siteNav">
-        {% for weight in (1..10) %}
-          {% for p in site.pages %}
-            {% if p.weight == weight %}
-              <li
-                {% if p.url == page.url %}
-                  class="active"
-                {% endif %}>
-                <a href="{{ p.url }}">{{ p.title }}</a>
-              </li>
-            {% endif %}
-          {% endfor %}
+        {% for p in site.data.navigation %}
+          <li
+            {% if p.pageId == page.pageId or p.pageId == layout.pageId %}
+              class="active"
+            {% endif %}>
+
+            <a href="{{ p.permalink }}">{{ p.name }}</a>
+          </li>
         {% endfor %}
       </ul>
     </div>

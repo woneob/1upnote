@@ -6,7 +6,13 @@ layout: compress
   <!-- head -->
   {% include head.html %}
 
-  <body{% if page.pageId %} class="{{ page.pageId }}"{% endif %}>
+  <body
+    {% if page.pageId %}
+      class="{{ page.pageId }}"
+    {% else if layout.pageId %}
+      class="{{ layout.pageId }}"
+    {% endif %}>
+
     <!-- Site header -->
     {% include header.html %}
 
