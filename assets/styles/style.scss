@@ -165,9 +165,10 @@ sitemap: false
         .currentPage {
             margin-left: .2rem;
             vertical-align: middle;
+            text-transform: capitalize;
             font-weight: normal;
             font-size: 1.4rem;
-            color: #888;
+            color: rgba(178,184,192,.6);
 
             &:before {
                 content: "";
@@ -177,7 +178,7 @@ sitemap: false
                 margin-right: .6rem;
                 border-width: .1rem .1rem 0 0;
                 border-style: solid;
-                border-color: #aaa;
+                border-color: rgba(178,184,192,.4);
                 vertical-align: middle;
                 transform: rotate(45deg);
             }

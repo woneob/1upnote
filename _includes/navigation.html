@@ -14,7 +14,7 @@
         </svg>
       </a>
 
-      {% if page.weight %}
+      {% if page.pageId and page.title != 'blog'`%}
         <strong class="currentPage">{{ page.title }}</strong>
       {% endif %}
     </div>
