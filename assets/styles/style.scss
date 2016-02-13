@@ -324,50 +324,64 @@ sitemap: false
         .cancelButton {
             position: absolute;
             top: 0;
-            right: .8rem;
+            right: 0;
             bottom: 0;
-            width: 1.5rem;
-            height: 1.5rem;
-            margin: auto;
+            width: 2rem;
+            margin: 0;
             padding: 0;
-            overflow: hidden;
+            background: transparent;
             border: 0 none;
-            border-radius: 50%;
             outline: none;
-            background: rgba(0,0,0,.2);
-            text-indent: -10rem;
             opacity: 0;
             transition: opacity .3s;
 
-            &:before,
-            &:after {
-                content: "";
+            span {
                 position: absolute;
                 top: 0;
                 right: 0;
                 bottom: 0;
                 left: 0;
-                width: .1rem;
-                height: 60%;
+                width: 1.5rem;
+                height: 1.5rem;
+                overflow: hidden;
                 margin: auto;
-                background-color: #747a80;
-            }
+                border-radius: 50%;
+                background: rgba(0,0,0,.2);
+                text-indent: -10rem;
+                pointer-events: none;
 
-            &:before {
-                transform: rotate(45deg);
-            }
+                &:before,
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: .1rem;
+                    height: 60%;
+                    margin: auto;
+                    background-color: #747a80;
+                }
 
-            &:after {
-                transform: rotate(135deg);
+                &:before {
+                    transform: rotate(45deg);
+                }
+
+                &:after {
+                    transform: rotate(135deg);
+                }
             }
 
             &:hover,
             &:focus {
-                background: rgba(0,0,0,.4);
+                span {
+                    background: rgba(0,0,0,.4);
 
-                &:before,
-                &:after {
-                    background-color: #747a80 + 40;
+                    &:before,
+                    &:after {
+                        background-color: #747a80 + 40;
+                    }
                 }
             }
         }
