@@ -216,7 +216,15 @@ sitemap: false
 
                 &.active {
                     a {
+                        background-color: rgba(0,0,0,.08);
+                        box-shadow: inset 0 .1rem rgba(0,0,0,.1);
                         color: #ea873e;
+
+                        &:hover,
+                        &:focus {
+                            background-color: rgba(0,0,0,.15);
+                            box-shadow: inset 0 .1rem rgba(0,0,0,.15);
+                        }
                     }
                 }
             }
