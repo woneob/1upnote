@@ -1,4 +1,6 @@
 (function(google) {
+  'use strict';
+
   google.load('search', '1', {
     language: 'en',
     nocss: true
