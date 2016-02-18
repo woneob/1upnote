@@ -1,4 +1,4 @@
-(function(google) {
+;(function(google) {
   'use strict';
 
   google.load('search', '1', {
