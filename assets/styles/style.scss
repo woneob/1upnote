@@ -270,6 +270,9 @@ sitemap: false
               color: #fff;
             }
 
+            &:hover {
+                background-color: rgba(38,42,48,.35);
+            }
             &:focus {
                 background-color: rgba(38,42,48,.5);
 
