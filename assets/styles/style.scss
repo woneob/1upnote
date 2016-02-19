@@ -103,8 +103,8 @@ sitemap: false
         cursor: default;
 
         &::selection {
-          background: rgba(0,0,0,.3);
-          color: rgba(160,170,184,.7);
+            background: rgba(0,0,0,.3);
+            color: rgba(160,170,184,.7);
         }
     }
 }
@@ -266,8 +266,8 @@ sitemap: false
             }
 
             &::selection {
-              background: rgba(0,0,0,.5);
-              color: #fff;
+                background: rgba(0,0,0,.5);
+                color: #fff;
             }
 
             &:hover {
@@ -674,7 +674,7 @@ sitemap: false
 
                         &::selection,
                         span::selection {
-                          background: rgba(0,0,0,.1);
+                            background: rgba(0,0,0,.1);
                         }
                     }
                 }
