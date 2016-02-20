@@ -1,4 +1,6 @@
 ;(function($) {
+  'use strict';
+
   $.fn.formMail = function() {
     var $forms = this;
 

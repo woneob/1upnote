@@ -1,4 +1,6 @@
 ;(function($, win, doc) {
+  'use strict';
+
   var $win = $(win);
   var $doc = $(doc);
 
