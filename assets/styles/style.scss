@@ -170,7 +170,7 @@ sitemap: false
             font-size: 1.4rem;
             color: rgba(178,184,192,.6);
 
-            &:before {
+            &::before {
                 content: "";
                 display: inline-block;
                 width: .4rem;
@@ -273,6 +273,7 @@ sitemap: false
             &:hover {
                 background-color: rgba(38,42,48,.35);
             }
+
             &:focus {
                 background-color: rgba(38,42,48,.5);
 
@@ -305,13 +306,13 @@ sitemap: false
             transition: opacity .3s;
             pointer-events: none;
 
-            &:before,
-            &:after {
+            &::before,
+            &::after {
                 content: "";
                 position: absolute;
             }
 
-            &:before {
+            &::before {
                 top: 0;
                 left: 0;
                 box-sizing: border-box;
@@ -321,7 +322,7 @@ sitemap: false
                 border-radius: 50%;
             }
 
-            &:after {
+            &::after {
                 right: .2rem;
                 bottom: 0;
                 width: .2rem;
@@ -360,8 +361,8 @@ sitemap: false
                 text-indent: -10rem;
                 pointer-events: none;
 
-                &:before,
-                &:after {
+                &::before,
+                &::after {
                     content: "";
                     position: absolute;
                     top: 0;
@@ -374,11 +375,11 @@ sitemap: false
                     background-color: #747a80;
                 }
 
-                &:before {
+                &::before {
                     transform: rotate(45deg);
                 }
 
-                &:after {
+                &::after {
                     transform: rotate(135deg);
                 }
             }
@@ -388,8 +389,8 @@ sitemap: false
                 span {
                     background: rgba(0,0,0,.4);
 
-                    &:before,
-                    &:after {
+                    &::before,
+                    &::after {
                         background-color: #747a80 + 40;
                     }
                 }
@@ -451,7 +452,7 @@ sitemap: false
                         font-size: 1.3rem;
                         color: #999;
 
-                        &:before {
+                        &::before {
                             position: absolute;
                             top: 0;
                             left: .2rem;
@@ -461,7 +462,7 @@ sitemap: false
                         a {
                             color: #7a7a7a;
 
-                            &:not(:last-child):after {
+                            &:not(:last-child)::after {
                                 content: ",";
                             }
 
@@ -473,7 +474,7 @@ sitemap: false
                         dt {
                             display: inline-block;
 
-                            &:after {
+                            &::after {
                                 content: ":";
                                 margin-right: .6rem;
                             }
@@ -510,7 +511,7 @@ sitemap: false
                     color: #4a4a4a;
                     word-break: keep-all;
 
-                    &:first-line {
+                    &::first-line {
                         font-size: 3rem;
                     }
                 }
@@ -521,7 +522,7 @@ sitemap: false
                     font-size: 1.3rem;
                     color: #999;
 
-                    &:before {
+                    &::before {
                         position: absolute;
                         top: 0;
                         left: .2rem;
@@ -531,7 +532,7 @@ sitemap: false
                     a {
                         color: #7a7a7a;
 
-                        &:not(:last-child):after {
+                        &:not(:last-child)::after {
                             content: ",";
                         }
 
@@ -543,7 +544,7 @@ sitemap: false
                     dt {
                         display: inline-block;
 
-                        &:after {
+                        &::after {
                             content: ":";
                             margin-right: .6rem;
                         }
@@ -743,7 +744,7 @@ sitemap: false
                         white-space: nowrap;
                         padding-right: 1rem;
 
-                        &:before {
+                        &::before {
                             content: "\2022";
                             margin-right: .4rem;
                         }
