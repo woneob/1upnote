@@ -54,8 +54,7 @@ highlighter: rouge
 # http://jekyllrb.com/docs/assets/#sassscss
 sass:
   add_charset: true
-  load_paths:
-    - assets/styles/_scss
+  sass_dir: assets/styles/_scss
   style: compressed
 
 # Compress HTML
