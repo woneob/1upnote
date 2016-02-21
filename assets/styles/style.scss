@@ -18,12 +18,14 @@ sitemap: false
 */
 
 /* Imports for all settings */
-@import "mixins";
-@import "reset";
-@import "variables";
-@import "fonts";
-@import "defaults";
-@import "pygments";
+@import "base/mixins";
+@import "base/reset";
+@import "base/variables";
+@import "base/fonts";
+@import "base/defaults";
+
+/* Components */
+@import "components/pygments";
 
 .siteHeader {
     padding: 8rem 0 4rem;
