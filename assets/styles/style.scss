@@ -841,11 +841,3 @@ sitemap: false
         }
     }
 }
-
-@media only screen and (max-width: 35em) {
-    @import "smallDevice";
-}
-
-@media print {
-    @import "print";
-}
