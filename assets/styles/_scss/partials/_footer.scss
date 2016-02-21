@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.siteFooter {
+    padding: 3rem 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(190, 200, 210, .4);
+
+    a {
+        color: rgba(190, 200, 210, .7);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

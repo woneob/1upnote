@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+.siteHeader {
+    padding: 8rem 0 4rem;
+
+    .logo {
+        width: 16rem;
+        margin: 0 auto;
+
+        a {
+            display: block;
+            outline: none;
+
+            .symbol {
+                display: block;
+                width: 10.7rem;
+                height: 7.5rem;
+                margin: 0 auto 1.6rem;
+
+                .note {
+                    fill: #292d31;
+                    transition: fill .2s;
+                }
+
+                .number {
+                    fill: rgba(218, 224, 234, .8);
+                    transition: fill .3s;
+                }
+            }
+
+            .logotype {
+                display: block;
+                width: 16rem;
+                height: 3.2rem;
+
+                .logotype-1up {
+                    fill: rgba(222, 228, 234, .9);
+                    transition: fill .2s;
+                }
+
+                .logotype-note {
+                    fill: rgba(178, 184, 192, .7);
+                    transition: fill .2s;
+                }
+            }
+
+            &:hover,
+            &:focus {
+                .symbol {
+                    .note {
+                        fill: #2b2e33;
+                    }
+
+                    .number {
+                        fill: #e4e8ef;
+                    }
+                }
+
+                .logotype {
+                    .logotype-1up {
+                        fill: #fff;
+                    }
+
+                    .logotype-note {
+                        fill: rgba(255, 255, 255, .6);
+                    }
+                }
+            }
+        }
+    }
+
+    .tagline {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        text-align: center;
+        text-transform: capitalize;
+        color: rgba(160, 170, 184, .4);
+        cursor: default;
+
+        &::selection {
+            background: rgba(0, 0, 0, .3);
+            color: rgba(160, 170, 184, .7);
+        }
+    }
+}

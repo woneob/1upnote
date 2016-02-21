@@ -1,0 +1,384 @@
+@charset "utf-8";
+
+.siteContent {
+    background-color: #fff;
+
+    .contentWrap {
+        box-sizing: border-box;
+        max-width: 80rem;
+        min-height: 50rem;
+        overflow: hidden;
+        margin: 0 auto;
+        padding: 1.5rem 1rem 4rem;
+        font-size: 1.4rem;
+
+        .empty {
+            padding: 4rem 0;
+            text-align: center;
+            font-size: 1.8rem;
+            color: #999;
+        }
+
+        .mainList {
+            .posts {
+                margin-top: 2rem;
+
+                .post {
+                    padding: 0 .6rem;
+
+                    + .post {
+                        margin-top: 4rem;
+                    }
+
+                    h2 {
+                        margin-bottom: .6rem;
+                        font-size: 2.2rem;
+                        line-height: 1.2;
+
+                        a {
+                            color: #5c6062;
+
+                            &:hover,
+                            &:focus {
+                                outline: none;
+                                border-bottom: .1rem dotted #aaa;
+                                color: #333;
+                            }
+                        }
+                    }
+
+                    .meta {
+                        position: relative;
+                        padding-left: 1rem;
+                        font-size: 1.3rem;
+                        color: #999;
+
+                        &::before {
+                            position: absolute;
+                            top: 0;
+                            left: .2rem;
+                            content: "\2022";
+                        }
+
+                        a {
+                            color: #7a7a7a;
+
+                            &:not(:last-child)::after {
+                                content: ",";
+                            }
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+
+                        dt {
+                            display: inline-block;
+
+                            &::after {
+                                content: ":";
+                                margin-right: .6rem;
+                            }
+                        }
+
+                        dd {
+                            display: inline-block;
+                            margin-right: 1.2rem;
+                        }
+                    }
+
+                    .excerpt {
+                        margin-top: 1.4rem;
+                        font-size: 1.5rem;
+                        line-height: 1.4;
+                        text-align: justify;
+                        color: #777;
+                    }
+                }
+            }
+        }
+
+        .postContent {
+            padding-top: 3rem;
+
+            .postHeader {
+                padding: 0 .6rem;
+
+                h1 {
+                    margin-bottom: .6rem;
+                    font-size: 2.2rem;
+                    line-height: 1.2;
+                    letter-spacing: -.03em;
+                    color: #4a4a4a;
+                    word-break: keep-all;
+
+                    &::first-line {
+                        font-size: 3rem;
+                    }
+                }
+
+                .meta {
+                    position: relative;
+                    padding-left: 1rem;
+                    font-size: 1.3rem;
+                    color: #999;
+
+                    &::before {
+                        position: absolute;
+                        top: 0;
+                        left: .2rem;
+                        content: "\2022";
+                    }
+
+                    a {
+                        color: #7a7a7a;
+
+                        &:not(:last-child)::after {
+                            content: ",";
+                        }
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    dt {
+                        display: inline-block;
+
+                        &::after {
+                            content: ":";
+                            margin-right: .6rem;
+                        }
+                    }
+
+                    dd {
+                        display: inline-block;
+                        margin-right: 1.2rem;
+                    }
+                }
+            }
+
+            .postArticle {
+                margin-top: 2rem;
+                padding: 0 .6rem 2rem;
+                font-size: 1.6rem;
+                line-height: 1.4;
+
+                h2 {
+                    margin: 2rem 0 .4rem;
+                    font-size: 2.2rem;
+                    color: #444;
+                }
+
+                p {
+                    text-align: justify;
+                    letter-spacing: -.02rem;
+                    line-height: 1.45;
+
+                    + p {
+                        margin-top: 1.2rem;
+                    }
+
+                    code {
+                        display: inline-block;
+                        padding: .2rem .5rem .1rem;
+                        border-radius: .5rem;
+                        box-shadow: inset 0 0 .1rem rgba(0, 0, 0, .14);
+                        white-space: nowrap;
+                        background-color: rgba(0, 0, 0, .05);
+                        font-size: 1.3rem;
+                        line-height: 1;
+                        color: #ef4c4c;
+                    }
+
+                    img {
+                        max-width: 100%;
+                    }
+                }
+
+                a {
+                    color: darken(#3fa1d5, 10%);
+                    text-decoration: underline;
+                }
+
+                em,
+                strong {
+                    font-weight: bold;
+                }
+
+                abbr {
+                    border-bottom: .1rem dotted #bbb;
+                    cursor: default;
+                }
+
+                sup {
+                    vertical-align: top;
+                    font-size: .8em;
+                    color: #888;
+                }
+
+                kbd {
+                    display: inline-block;
+                    padding: .3rem .5rem .2rem;
+                    background-color: #fff;
+                    border-width: .1rem;
+                    border-style: solid;
+                    border-color: #ddd #ddd #ccc;
+                    border-radius: .3rem;
+                    box-shadow: 0 .1rem 0 0 rgba(0, 0, 0, .1);
+                    vertical-align: .1rem;
+                    font-size: 1.1rem;
+                    line-height: 1rem;
+                    color: #666;
+                }
+
+                pre {
+                    margin: 1rem 0;
+                    padding: 1rem 1rem .2rem;
+                    border-radius: .5rem;
+                    background-color: #f8f8f8;
+                    box-shadow: inset 0 0 .1rem rgba(0, 0, 0, .1);
+                    font-size: 1.3rem;
+                    line-height: 1.3;
+
+                    code {
+                        display: block;
+                        padding-bottom: .8rem;
+                        overflow-x: auto;
+                        -webkit-overflow-scrolling: touch;
+                        white-space: pre;
+                        color: inherit;
+
+                        &::-webkit-scrollbar {
+                            width: 1.4rem;
+                            height: 1.4rem;
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            height: .6rem;
+                            border: .4rem solid rgba(0, 0, 0, 0);
+                            background-clip: padding-box;
+                            border-radius: .7rem;
+                            background-color: rgba(0, 0, 0, .15);
+                            box-shadow: inset -.1rem -.1rem 0 rgba(0, 0, 0, .05), inset .1rem .1rem 0 rgba(0, 0, 0, .05);
+                        }
+
+                        &::-webkit-scrollbar-button {
+                            width: 0;
+                            height: 0;
+                            display: none;
+                        }
+
+                        &::-webkit-scrollbar-corner {
+                            background-color: transparent;
+                        }
+
+
+                        &::selection,
+                        span::selection {
+                            background: rgba(0, 0, 0, .1);
+                        }
+                    }
+                }
+            }
+
+            .relatedPosts {
+                margin-top: 3rem;
+                padding-top: 2rem;
+                border-top: .1rem solid #eee;
+
+                h2 {
+                    font-size: 2.2rem;
+                }
+
+                ul {
+                    margin-top: 1rem;
+
+                    li {
+                        + li {
+                            margin-top: .4rem;
+                        }
+
+                        a {
+                            margin-right: .4rem;
+                            color: #5a5a5a;
+                        }
+
+                        time {
+                            white-space: nowrap;
+                            font-size: 1.2rem;
+                            color: #999;
+                        }
+                    }
+                }
+            }
+        }
+
+        .archiveContent {
+            h3 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                color: #4a4a4a;
+            }
+
+            .posts {
+                margin-top: .4rem;
+                font-size: 1.5rem;
+
+                + h3 {
+                    margin-top: 2.6rem;
+                }
+
+                li {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                a {
+                    white-space: nowrap;
+                    color: #5a5a5a;
+
+                    time {
+                        padding: .2rem 0 .2rem 1.4rem;
+                        width: 5rem;
+                        vertical-align: middle;
+                        white-space: nowrap;
+                        padding-right: 1rem;
+
+                        &::before {
+                            content: "\2022";
+                            margin-right: .4rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .tagsContent {
+            h3 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                color: #4a4a4a;
+            }
+
+            .posts {
+                margin-top: .4rem;
+                font-size: 1.5rem;
+
+                + h3 {
+                    margin-top: 2.6rem;
+                }
+
+                li {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+                    a {
+                        white-space: nowrap;
+                        color: #5a5a5a;
+                    }
+                }
+            }
+        }
+    }
+}
