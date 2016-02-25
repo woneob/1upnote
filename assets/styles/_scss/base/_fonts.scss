@@ -1,17 +1,20 @@
 @charset "utf-8";
-
 $fontPath: "/assets/fonts";
 
 @font-face {
-    $nanumBG: $fontPath + "/nanumbarungothicregular";
+    $ns: $fontPath + "/NotoSansCJKkr-DemiLight";
 
-    font-family: "nanum-barun-gothic";
-    src: url("#{$nanumBG}.eot");
-    src: url("#{$nanumBG}.eot?#iefix") format("embedded-opentype"),
-        url("#{$nanumBG}.woff2") format("woff2"),
-        url("#{$nanumBG}.woff") format("woff"),
-        url("#{$nanumBG}.ttf") format("truetype"),
-        url("#{$nanumBG}.svg#nanum-barun-gothic-regular") format("svg");
-    font-weight: normal;
+    font-family: "Noto Sans KR";
     font-style: normal;
+    font-weight: 300;
+    src: url("#{$ns}.woff2") format("woff2"), url("#{$ns}.woff") format("woff"), url("#{$ns}.otf") format("opentype");
+}
+
+@font-face {
+    $ns: $fontPath + "/NotoSansCJKkr-Medium";
+
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-weight: 500;
+    src: url("#{$ns}.woff2") format("woff2"), url("#{$ns}.woff") format("woff"), url("#{$ns}.otf") format("opentype");
 }

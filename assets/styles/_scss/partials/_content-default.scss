@@ -2,6 +2,7 @@
 
 .siteContent {
     background-color: #fff;
+    color: #5d6063;
 
     .contentWrap {
         box-sizing: border-box;
@@ -34,6 +35,10 @@
                         margin-bottom: .6rem;
                         font-size: 2.2rem;
                         line-height: 1.2;
+
+                        &::first-line {
+                            font-size: 2.4rem;
+                        }
 
                         a {
                             color: #5c6062;
@@ -165,18 +170,22 @@
                 line-height: 1.4;
 
                 h2 {
-                    margin: 2rem 0 .4rem;
+                    margin: 3rem 0 .6rem;
                     font-size: 2.2rem;
-                    color: #444;
+                    line-height: 1.2;
+
+                    &::first-line {
+                        font-size: 2.4rem;
+                    }
                 }
 
                 p {
                     text-align: justify;
                     letter-spacing: -.02rem;
-                    line-height: 1.45;
+                    line-height: 1.6;
 
                     + p {
-                        margin-top: 1.2rem;
+                        margin-top: 1.4rem;
                     }
 
                     code {
@@ -203,7 +212,8 @@
 
                 em,
                 strong {
-                    font-weight: bold;
+                    font-weight: 500;
+                    color: #4a4c4e;
                 }
 
                 abbr {
