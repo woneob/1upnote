@@ -4,7 +4,7 @@
 
   <!-- Title -->
   {% if page.title %}
-    {% if page.title == 'home' %}
+    {% if page.title == 'blog' %}
       <title>{{ site.title | xml_escape }}</title>
     {% else %}
       <title>{{ page.title | capitalize | append: ' - ' | append: site.title | xml_escape }}</title>
