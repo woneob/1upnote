@@ -10,6 +10,9 @@ permalink: /:title
 timezone: Asia/Seoul
 version: 0.0.1
 
+# Disable custom plugins
+safe: true
+
 # Language and locale settings
 language:
   code: ko
