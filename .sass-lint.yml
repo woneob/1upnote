@@ -126,6 +126,8 @@ rules:
     - extra-properties:
       - 'touch-callout'
       - 'overflow-scrolling'
+      - 'flex-align'
+      - 'flex-pack'
 
   no-qualifying-elements:
     - 0
