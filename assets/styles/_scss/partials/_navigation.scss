@@ -122,6 +122,93 @@
         }
     }
 
+    .menuButtonCol {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+        margin: auto;
+        min-width: 3em;
+
+        .menuButton {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom:  0;
+            left: 0;
+            width: 100%;
+            margin: auto;
+            padding: 0;
+            overflow: hidden;
+            background: transparent;
+            border: 0 none;
+            outline: none;
+
+            &::before,
+            &::after,
+            span::before,
+            span::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: .2rem;
+                width: 48%;
+                margin: auto;
+                background-color: #c7cdd4;
+            }
+
+            &::before {
+                transition: transform .3s, opacity .6s;
+                transform: translateY(-.7rem);
+            }
+
+            &::after {
+                transition: transform .3s, opacity .6s;
+                transform: translateY(.7rem);
+            }
+
+            span {
+                display: block;
+                text-indent: -999rem;
+
+                &::before,
+                &::after {
+                    transition: transform .2s;
+                }
+            }
+
+            &:active {
+                background-color: rgba(0, 0, 0, .1);
+            }
+
+
+            &.menuShown {
+                &::before,
+                &::after {
+                    transform: none;
+                    opacity: 0;
+                    transition-duration: .2s;
+                }
+
+                span {
+                    &::before {
+                        transform: rotate(45deg);
+                        box-shadow: none;
+                    }
+
+                    &::after {
+                        transform: rotate(-45deg);
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+
     .searchCol {
         order: 3;
         flex-grow: 1;
