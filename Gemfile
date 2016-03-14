@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'github-pages', '58'
+gem 'github-pages', '59'
 gem 'wdm', '~> 0.1.1' if Gem.win_platform?
