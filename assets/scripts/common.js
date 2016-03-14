@@ -8,7 +8,7 @@
   $doc.on({
     touchstart: function() {},
     ready: function() {
-      FastClick.attach(doc.body);
+      FastClick.attach(this.body);
     }
   });
 })(jQuery, window, document);
