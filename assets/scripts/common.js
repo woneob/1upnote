@@ -1,4 +1,4 @@
-;(function($, win, doc) {
+;(function($, win, doc, undefined) {
   'use strict';
 
   var $win = $(win);
