@@ -6,13 +6,15 @@ root: true
 env:
   browser: true
   jquery: true
+  es6: true
+  node: true
 
 rules:
   strict: 2
 
   comma-dangle:
     - 2
-    - 'never'
+    - never
 
   indent:
     - 2
@@ -24,25 +26,25 @@ rules:
 
   brace-style:
     - 1
-    - '1tbs'
+    - 1tbs
 
   semi:
     - 2
-    - 'always'
+    - always
 
   linebreak-style:
     - 2
-    - 'unix'
+    - unix
 
   comma-style:
     - 1
-    - 'last'
+    - last
 
   curly: 2
 
   eqeqeq:
     - 2
-    - 'allow-null'
+    - allow-null
 
   key-spacing:
     - 1
@@ -58,7 +60,7 @@ rules:
 
   space-before-blocks:
     - 1
-    - 'always'
+    - always
 
   keyword-spacing:
     - 1
@@ -68,10 +70,10 @@ rules:
 
   space-in-parens:
     - 1
-    - 'never'
+    - never
 
   space-before-function-paren:
     - 1
-    - 'never'
+    - never
 
   no-trailing-spaces: 1
