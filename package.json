@@ -1,0 +1,25 @@
+{
+  "name": "1upnote",
+  "version": "0.0.0",
+  "description": "The personal website of 1UP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web",
+    "design",
+    "blog"
+  ],
+  "author": "1UP",
+  "contributors": [],
+  "license": "MIT",
+  "homepage": "https://github.com/woneob/1upnote",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woneob/1upnote.git"
+  },
+  "bugs": {
+    "url": "https://github.com/woneob/1upnote/issues"
+  }
+}
