@@ -20,7 +20,7 @@
     "url": "git+https://github.com/woneob/1upnote.git"
   },
   "bugs": {
-    "url": "https://github.com/woneob/1upnote/issues"
+    "email": "1up@1upz.com"
   },
   "engines": {
     "node": "^6",
