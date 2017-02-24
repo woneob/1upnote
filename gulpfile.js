@@ -30,6 +30,9 @@ gulp.task('style', function() {
   return gulp
     .src(path.join(site.src, dirname, '/**/*.scss'))
     .pipe($.plumber())
+    .pipe($.sassLint())
+    .pipe($.sassLint.format())
+    .pipe($.sassLint.failOnError())
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.postcss(opts.postcss))
     .pipe(gulp.dest(path.join(site.dist, dirname)));
