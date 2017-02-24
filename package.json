@@ -11,7 +11,11 @@
     "design",
     "blog"
   ],
-  "author": "1UP",
+  "author": {
+    "name": "1UP",
+    "email": "1up@1upz.com",
+    "url": "https://1upnote.com"
+  },
   "contributors": [],
   "license": "MIT",
   "homepage": "https://github.com/woneob/1upnote",
