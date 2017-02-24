@@ -1,3 +1,4 @@
+var path = require('path');
 var gulp = require('gulp');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
@@ -6,12 +7,14 @@ var site =  require('./package.json');
 
 gulp.task('server', function() {
   $.connect.server({
-    root: 'dist',
+    root: site.dist,
     livereload: true
   });
 });
 
 gulp.task('style', function() {
+  var dirname = 'styles';
+
   var opts = {
     postcss: [
       autoprefixer({
@@ -25,10 +28,10 @@ gulp.task('style', function() {
   };
 
   return gulp
-    .src('src/styles/**/*.scss')
+    .src(path.join(site.src, dirname, '/**/*.scss'))
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.postcss(opts.postcss))
-    .pipe(gulp.dest('dist/styles'));
+    .pipe(gulp.dest(path.join(site.dist, dirname)));
 });
 
 gulp.task('default', ['server']);
