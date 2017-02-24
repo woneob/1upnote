@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var autoprefixer = require('autoprefixer');
+var cssnano = require('cssnano');
 var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
 
@@ -16,6 +17,9 @@ gulp.task('style', function() {
       autoprefixer({
         remove: false,
         cascade: false
+      }),
+      cssnano({
+        safe: true
       })
     ]
   };

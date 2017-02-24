@@ -33,7 +33,8 @@
     "npm": ">=3"
   },
   "devDependencies": {
-    "autoprefixer": "^6.7.5",
+    "autoprefixer": "6.7.5",
+    "cssnano": "3.10.0",
     "gulp": "3.9.1",
     "gulp-connect": "5.0.0",
     "gulp-load-plugins": "1.5.0",
