@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
+    "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -34,9 +35,8 @@
   "devDependencies": {
     "gulp": "3.9.1",
     "gulp-connect": "5.0.0",
-    "gulp-load-plugins": "1.5.0"
-  }
-  ,
-  "dependencies": {
-  }
+    "gulp-load-plugins": "1.5.0",
+    "gulp-sass": "3.1.0"
+  },
+  "dependencies": {}
 }
