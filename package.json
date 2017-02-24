@@ -40,5 +40,10 @@
     "gulp-postcss": "6.3.0",
     "gulp-sass": "3.1.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "browserslist": [
+    "defaults",
+    "ios_saf >= 8",
+    "android >= 4.4"
+  ]
 }
