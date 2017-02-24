@@ -8,7 +8,7 @@ var site =  require('./package.json');
 gulp.task('server', function() {
   $.connect.server({
     root: site.dist,
-    livereload: true
+    livereload: false
   });
 });
 
