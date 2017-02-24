@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var autoprefixer = require('autoprefixer');
 var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
 
@@ -10,9 +11,19 @@ gulp.task('server', function() {
 });
 
 gulp.task('style', function() {
+  var opts = {
+    postcss: [
+      autoprefixer({
+        remove: false,
+        cascade: false
+      })
+    ]
+  };
+
   return gulp
     .src('src/styles/**/*.scss')
     .pipe($.sass().on('error', $.sass.logError))
+    .pipe($.postcss(opts.postcss))
     .pipe(gulp.dest('dist/styles'));
 });
 
