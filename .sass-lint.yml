@@ -74,6 +74,9 @@ rules:
     - 1
     - include: false
 
+  max-file-line-count:
+    - 0
+
   mixin-name-format:
     - 0
     - allow-leading-underscore: true
