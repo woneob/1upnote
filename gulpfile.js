@@ -5,6 +5,11 @@ var cssnano = require('cssnano');
 var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
 
+var base = {
+  src: path.resolve(__dirname, site.src),
+  dist: path.resolve(__dirname, site.dist)
+};
+
 gulp.task('server', function() {
   $.connect.server({
     root: site.dist,
@@ -36,6 +41,28 @@ gulp.task('style', function() {
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.postcss(opts.postcss))
     .pipe(gulp.dest(path.join(site.dist, dirname)));
+});
+
+gulp.task('others', function() {
+  var dirname = 'others';
+  var opts = {
+    ejs: {
+      site: site
+    },
+    rename: {
+      extname: ''
+    }
+  };
+
+  var isEjs = function(file) {
+    return path.extname(file.path) === '.ejs';
+  };
+
+  return gulp
+    .src(path.join(base.src, dirname, '**/*'))
+    .pipe($.if(isEjs, $.ejs(opts.ejs)))
+    .pipe($.if(isEjs, $.rename(opts.rename)))
+    .pipe(gulp.dest(base.dist));
 });
 
 gulp.task('default', ['server']);
