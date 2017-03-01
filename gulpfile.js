@@ -2,6 +2,7 @@ var path = require('path');
 var gulp = require('gulp');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
+var lazypipe = require('lazypipe');
 var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
 
@@ -45,11 +46,29 @@ gulp.task('style', function() {
 
 gulp.task('script', function() {
   var dirname = 'scripts';
+  var isOptimizable = function(file) {
+    var originPath = file.path;
+    var stripPath = path.join(base.src, dirname, '/');
+    var originDir = path.dirname(originPath.replace(stripPath, ''));
+    var baseDir = originDir.split(path.sep)[0];
+
+    var disallowList = [
+      'libs',
+      'plugins'
+    ];
+
+    return disallowList.indexOf(baseDir) < 0;
+  };
+
+  var optimizeChains = lazypipe()
+    .pipe($.eslint)
+    .pipe($.eslint.format)
+    .pipe($.uglify);
 
   return gulp
     .src(path.join(base.src, dirname, '**/*.js'))
-    .pipe($.uglify())
-    .pipe(gulp.dest(path.join(base.dist, dirname)))
+    .pipe($.if(isOptimizable, optimizeChains()))
+    .pipe(gulp.dest(path.join(base.dist, dirname)));
 });
 
 gulp.task('others', function() {
