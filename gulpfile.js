@@ -43,6 +43,15 @@ gulp.task('style', function() {
     .pipe(gulp.dest(path.join(site.dist, dirname)));
 });
 
+gulp.task('script', function() {
+  var dirname = 'scripts';
+
+  return gulp
+    .src(path.join(base.src, dirname, '**/*.js'))
+    .pipe($.uglify())
+    .pipe(gulp.dest(path.join(base.dist, dirname)))
+});
+
 gulp.task('others', function() {
   var dirname = 'others';
   var opts = {
