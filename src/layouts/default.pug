@@ -1,0 +1,21 @@
+doctype html
+html(
+  lang= site.language
+  id= page.htmlId
+  class= page.htmlClasses)
+
+  head
+    title= (page.title ? page.title + ' - ' : '') + site.name
+    meta(charset= site.charset)
+    meta(
+      name= 'description'
+      content= page.description || site.description)
+
+    block styles
+
+  body(
+    id= page.bodyId
+    class= page.bodyClasses)
+
+    block content
+    block scripts
