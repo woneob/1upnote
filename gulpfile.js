@@ -116,7 +116,7 @@ gulp.task('page', function() {
   var opts = {
     pug: {
       basedir: path.join(base.src, 'layouts'),
-      pretty: true,
+      pretty: false,
       data: {
         site: site,
         $: viewUtils
