@@ -6,5 +6,5 @@ This website is written in Node.Js and hosted on [GitHub Pages](https://pages.gi
 ## License
 
 The source code for the site is licensed under the 
-[MIT license](https://1up.mit-license.org/) and All posts are licensed under the 
-[Creative Commons Attribution-NoDerivatives 4.0 International License.](https://creativecommons.org/licenses/by-nd/4.0/).
+[MIT license](https://1up.mit-license.org/) and all posts are licensed under the 
+[Creative Commons Attribution-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nd/4.0/).
