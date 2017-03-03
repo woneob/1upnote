@@ -11,6 +11,11 @@ html(
       name= 'description'
       content= page.description || site.description)
 
+    if !page.search
+      meta(
+        name= 'robots'
+        content= 'none')
+
     block styles
       link(
         rel= 'stylesheet'

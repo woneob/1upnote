@@ -151,7 +151,8 @@ gulp.task('page', function() {
       layout: 'default',
       type: 'page',
       permalink: pageName,
-      date: new Date().toISOString()
+      date: new Date().toISOString(),
+      search: true
     }, pages[pageName]);
 
     var assets = function(type, pageName) {

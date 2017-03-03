@@ -8,6 +8,7 @@
   permalink: /404
   dest: /404.html
   date: 2017-03-04T14:04:00
+  search: false
 
 # posts
 /hello-world:
