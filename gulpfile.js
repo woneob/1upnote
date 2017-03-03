@@ -131,6 +131,10 @@ gulp.task('page', function() {
       .replace(/\\/g, '/') || '/';
   };
 
+  var replaceDestDir = function(to) {
+    return path.join(base.src, 'pages', to);
+  };
+
   var preset = function(file) {
     var contents = file.contents.toString();
     var indent = '\u0020'.repeat(2);
@@ -205,6 +209,10 @@ gulp.task('page', function() {
 
       data[baseName] = contentData;
     });
+
+    if (data.page.dest) {
+      file.path = replaceDestDir(data.page.dest);
+    }
 
     return data;
   };
