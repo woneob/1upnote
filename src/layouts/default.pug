@@ -12,6 +12,9 @@ html(
       content= page.description || site.description)
 
     block styles
+      link(
+        rel= 'stylesheet'
+        href='/styles/common.css')
 
   body(
     id= page.bodyId
