@@ -9,6 +9,7 @@ var yaml = require('js-yaml');
 var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
 var viewUtils = require('./lib/viewUtils.js')();
+var banner = require('./lib/banner.js')(site);
 
 var objectFilter = function(obj, predicate) {
   return Object.keys(obj).filter(function(key) {
@@ -118,6 +119,7 @@ gulp.task('page', function() {
       basedir: path.join(base.src, 'layouts'),
       pretty: false,
       data: {
+        banner: banner,
         site: site,
         $: viewUtils
       }
