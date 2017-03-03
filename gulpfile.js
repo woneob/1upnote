@@ -141,9 +141,14 @@ gulp.task('page', function() {
       pageName = path.resolve(pageName, '../');
     }
 
-    pageName = getPageName(pageName);
-    data.page = pages[pageName];
     data.posts = posts;
+    pageName = getPageName(pageName);
+    data.page = Object.assign({
+      layout: 'default',
+      type: 'page',
+      permalink: pageName,
+      date: new Date().toISOString()
+    }, pages[pageName]);
 
     var assets = function(type, pageName) {
       var cases = {
