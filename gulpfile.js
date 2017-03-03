@@ -9,6 +9,14 @@ var yaml = require('js-yaml');
 var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
 
+var objectFilter = function(obj, predicate) {
+  return Object.keys(obj).filter(function(key) {
+    return predicate(obj[key]);
+  }).reduce(function(res, key) {
+    return res[key] = obj[key], res;
+  }, {});
+};
+
 var base = {
   src: path.resolve(__dirname, site.src),
   dist: path.resolve(__dirname, site.dist)
@@ -99,6 +107,10 @@ gulp.task('others', function() {
 gulp.task('page', function() {
   var routes = fs.readFileSync(path.join(base.src, 'pages/.routes.yml'));
   var pages = yaml.safeLoad(routes);
+  var posts = objectFilter(pages, function(item) {
+    return item.type === 'post';
+  });
+
   var extName = '.pug';
   var opts = {
     pug: {
@@ -129,6 +141,7 @@ gulp.task('page', function() {
 
     pageName = getPageName(pageName);
     data.page = pages[pageName];
+    data.posts = posts;
 
     var assets = function(type, pageName) {
       var cases = {
