@@ -1,0 +1,15 @@
+title= (page.title ? page.title + ' - ' : '') + site.name
+meta(charset= site.charset)
+meta(
+  name= 'description'
+  content= page.description || site.description)
+
+if !page.search
+  meta(
+    name= 'robots'
+    content= 'none')
+
+block styles
+  link(
+    rel= 'stylesheet'
+    href='/styles/common.css')
