@@ -2,6 +2,7 @@
   "name": "1upnote",
   "version": "0.0.0",
   "description": "The personal website of 1UP",
+  "tagline": "Web design, development and UX",
   "main": "index.js",
   "scripts": {
     "start": "gulp",
