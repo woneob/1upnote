@@ -1,4 +1,4 @@
-## 1upnote
+# 1upnote
 
 Note that this repository is only for the [1upnote.com](https://1upnote.com) website.  
 This website is written in Node.Js and hosted on [GitHub Pages](https://pages.github.com/).
