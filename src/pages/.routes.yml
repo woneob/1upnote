@@ -1,0 +1,14 @@
+# pages
+/index:
+  permalink: /
+  dest: /index.html
+  date: 2017-02-30T14:00:00
+
+# posts
+/hello-world:
+  type: post
+  title: Hello World
+  description: test page
+  date: 2017-02-30T14:00:00
+  plugins:
+    - somePlugin/plugin.js
