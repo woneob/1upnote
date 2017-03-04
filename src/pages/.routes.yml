@@ -1,17 +1,17 @@
 # pages
-/index:
-  permalink: /
-  dest: /index.html
+index:
+  permalink: /index.html
   date: 2017-02-30T14:00:00
 
-/404:
-  permalink: /404
-  dest: /404.html
+404:
+  permalink: /404.html
+  title: Page Not Found
+  description: Page not found
   date: 2017-03-04T14:04:00
   search: false
 
 # posts
-/hello-world:
+hello-world:
   type: post
   title: Hello World
   description: test page

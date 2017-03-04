@@ -24,6 +24,19 @@ var base = {
   dist: path.resolve(__dirname, site.dist)
 };
 
+var router = function() {
+  var file = fs.readFileSync(path.join(base.src, 'pages/.routes.yml'));
+  var pages = yaml.safeLoad(file);
+  var posts = objectFilter(pages, function(item) {
+    return item.type === 'post';
+  });
+
+  return {
+    pages: pages,
+    posts: posts
+  };
+};
+
 gulp.task('server', function() {
   $.connect.server({
     root: site.dist,
@@ -110,13 +123,9 @@ gulp.task('others', function() {
 });
 
 gulp.task('page', function() {
-  var routes = fs.readFileSync(path.join(base.src, 'pages/.routes.yml'));
-  var pages = yaml.safeLoad(routes);
-  var posts = objectFilter(pages, function(item) {
-    return item.type === 'post';
-  });
-
+  var routes = router();
   var extName = '.pug';
+  var indent = '\u0020'.repeat(2);
   var opts = {
     pug: {
       basedir: path.join(base.src, 'layouts'),
@@ -133,75 +142,73 @@ gulp.task('page', function() {
     return str
       .replace(/\.pug$/, '')
       .replace(path.join(base.src, 'pages'), '')
-      .replace(/\\/g, '/') || '/';
+      .replace(/\\/g, '/')
+      .replace(/^\//, '');
   };
 
   var replaceDestDir = function(to) {
     return path.join(base.src, 'pages', to);
   };
 
+  var assets = function(type, page) {
+    var cases = {
+      styles: {
+        files: '**/*.scss',
+        tag: function(src) {
+          src = src.replace(/\.[^/.]+$/, '.css');
+          return 'link(rel= \'stylesheet\', href=\'' + src + '\')';
+        }
+      },
+      scripts: {
+        files: '**/*.js',
+        tag: function(src) {
+          return 'script(src=\'' + src + '\')';
+        }
+      }
+    };
+
+    var fileRoot = path.join(site.src, type, 'pages', page.name);
+    var filePath = path.join(fileRoot, cases[type].files);
+    var files = glob.sync(filePath);
+    var html = '';
+
+    if (type === 'scripts' && page.plugins.length) {
+      files = page.plugins.map(function(link) {
+        return '/scripts/plugins/' + link;
+      }).concat(files);
+    }
+
+    files.forEach(function(src) {
+      src = src.replace(site.src, '');
+      html += indent + cases[type].tag(src) + '\n';
+    });
+
+    return html;
+  };
+
   var preset = function(file) {
     var contents = file.contents.toString();
-    var indent = '\u0020'.repeat(2);
     var pageName = file.path;
     var data = {};
 
-    if (path.basename(pageName, extName) === 'index') {
-      pageName = path.resolve(pageName, '../');
-    }
-
-    data.posts = posts;
     pageName = getPageName(pageName);
+    data.posts = routes.posts;
     data.page = Object.assign({
+      name: pageName,
       layout: 'default',
       type: 'page',
-      permalink: pageName,
+      permalink: '/' + pageName,
       date: new Date().toISOString(),
-      search: true
-    }, pages[pageName]);
-
-    var assets = function(type, pageName) {
-      var cases = {
-        styles: {
-          files: '**/*.scss',
-          tag: function(src) {
-            src = src.replace(/\.[^/.]+$/, '.css');
-            return 'link(rel= \'stylesheet\', href=\'' + src + '\')';
-          }
-        },
-        scripts: {
-          files: '**/*.js',
-          tag: function(src) {
-            return 'script(src=\'' + src + '\')';
-          }
-        }
-      };
-
-      var fileRoot = path.join(site.src, type, 'pages', pageName);
-      var filePath = path.join(fileRoot, cases[type].files);
-      var files = glob.sync(filePath);
-      var html = '';
-
-      if (type === 'scripts' && data.page.plugins) {
-        files = data.page.plugins.map(function(link) {
-          return '/scripts/plugins/' + link;
-        }).concat(files);
-      }
-
-      files.forEach(function(src) {
-        src = src.replace(site.src, '');
-        html += indent + cases[type].tag(src) + '\n';
-      });
-
-      return html;
-    };
+      search: true,
+      plugins: []
+    }, routes.pages[pageName]);
 
     file.contents = new Buffer([
       'extends /' + data.page.layout,
       'block append styles',
-      assets('styles', pageName),
+      assets('styles', data.page),
       'block append scripts',
-      assets('scripts', pageName),
+      assets('scripts', data.page),
       'block content',
       contents.replace(/^(?!\s*$)/mg, indent)
     ].join('\n'));
@@ -216,10 +223,11 @@ gulp.task('page', function() {
       data[baseName] = contentData;
     });
 
-    if (data.page.dest) {
-      file.path = replaceDestDir(data.page.dest);
-    }
+    var isCustomDest = data.page.permalink !== '/' + pageName;
+    var defaultDest = path.join(data.page.permalink, 'index' + extName);
+    var dest = isCustomDest ? data.page.permalink : defaultDest;
 
+    file.path = path.join(base.src, 'pages', dest);
     return data;
   };
 
