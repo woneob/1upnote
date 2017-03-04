@@ -99,10 +99,13 @@ gulp.task('others', function() {
     return path.extname(file.path) === '.ejs';
   };
 
+  var ejsChins = lazypipe()
+    .pipe($.ejs, opts.ejs)
+    .pipe($.rename, opts.rename);
+
   return gulp
     .src(path.join(base.src, dirname, '**/*'))
-    .pipe($.if(isEjs, $.ejs(opts.ejs)))
-    .pipe($.if(isEjs, $.rename(opts.rename)))
+    .pipe($.if(isEjs, ejsChins()))
     .pipe(gulp.dest(base.dist));
 });
 
