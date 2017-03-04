@@ -64,5 +64,16 @@
   "src": "src",
   "dist": "dist",
   "language": "ko",
-  "charset": "utf-8"
+  "charset": "utf-8",
+  "robots": {
+    "agent": "*",
+    "delay": false,
+    "disallow": [
+      "/fonts/",
+      "/images/",
+      "/scripts/",
+      "/styles/"
+    ],
+    "sitemap": ""
+  }
 }

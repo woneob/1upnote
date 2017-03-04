@@ -108,6 +108,8 @@ gulp.task('others', function() {
     }
   };
 
+  opts.ejs = Object.assign(opts.ejs, router());
+
   var isEjs = function(file) {
     return path.extname(file.path) === '.ejs';
   };

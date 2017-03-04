@@ -1,0 +1,25 @@
+# Robots.txt
+# http://www.robotstxt.org/
+<%
+  var disallowPages = [];
+
+  Object.keys(pages).forEach(function(page) {
+    if (pages[page].search === false) {
+      disallowPages.push(pages[page].permalink || page + '/');
+    }
+  });
+
+  var disallow = site.robots.disallow.concat(disallowPages);
+-%>
+
+User-agent: <%= site.robots.agent %>
+Disallow:
+<% if (site.robots.delay) { %>
+Crawl-delay: site.robots.delay
+<% } -%>
+<% disallow.forEach(function(path) { %>
+Disallow: <%- path -%>
+<% }); %>
+<% if (site.robots.sitemap) { %>
+Sitemap: <%- site.robots.sitemap %>
+<% } -%>
