@@ -1,9 +1,23 @@
 h2 posts
 
 .list
-  ul
-    each item in posts
-      li
-        a(
-          href= item.permalink)
-          = item.title
+  dl
+    each item, link in posts
+      .listWrap
+        dt.subject
+          a(href= '/' + link)
+            = item.title
+        dd
+          dl
+            dt summary
+            dd= item.summary
+            dt date
+            dd
+            time(datetime= $.date(item.date, 'isoUtcDateTime'))
+              = $.date(item.date, 'yyyy-mm-dd')
+            dt tags
+            dd
+              ul
+                each tag in item.tags
+                  li
+                    a(href= '/tags/' + tag)= tag

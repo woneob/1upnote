@@ -16,6 +16,11 @@ hello-world:
   type: post
   title: Hello World
   description: test page
+  summary: test page
   date: 2017-02-30T14:00:00
+  tags:
+    - test
+    - JavaScript
+    - hello-world
   plugins:
     - somePlugin/plugin.js
