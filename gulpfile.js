@@ -334,7 +334,8 @@ gulp.task('watch', function() {
   ]);
 
   gulp.watch([
-    path.join(site.src, 'pages/**/*.{yml,pug}'),
+    path.join(site.src, 'pages/.routes.yml'),
+    path.join(site.src, 'pages/**/*.pug'),
     path.join(site.src, 'layouts/**/*.pug'),
     path.join(site.src, 'data/**/*.yml')
   ], {
