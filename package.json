@@ -21,6 +21,7 @@
   },
   "contributors": [],
   "license": "MIT",
+  "website": "https://1upnote.com",
   "homepage": "https://github.com/woneob/1upnote",
   "repository": {
     "type": "git",
@@ -67,13 +68,13 @@
   "charset": "utf-8",
   "robots": {
     "agent": "*",
-    "delay": false,
+    "delay": "10s",
     "disallow": [
       "/fonts/",
       "/images/",
       "/scripts/",
       "/styles/"
     ],
-    "sitemap": ""
+    "sitemap": "/sitemap.xml"
   }
 }

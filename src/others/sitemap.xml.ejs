@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <%_ Object.keys(pages).forEach(function(page) { _%>
+  <%_ if (pages[page].search !== false) { _%>
+  <url>
+    <loc><%- site.website + (pages[page].permalink || '/' + page) %></loc>
+    <lastmod><%= pages[page].date.toISOString() %></lastmod>
+    <changefreq><%= pages[page].changefreq || 'always' %></changefreq>
+  </url>
+  <%_ } _%>
+  <%_ }); _%>
+</urlset>

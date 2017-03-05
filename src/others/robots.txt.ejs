@@ -1,5 +1,6 @@
 # Robots.txt
 # http://www.robotstxt.org/
+
 <%
   var disallowPages = [];
 
@@ -11,15 +12,15 @@
 
   var disallow = site.robots.disallow.concat(disallowPages);
 -%>
-
 User-agent: <%= site.robots.agent %>
 Disallow:
-<% if (site.robots.delay) { %>
-Crawl-delay: site.robots.delay
-<% } -%>
-<% disallow.forEach(function(path) { %>
+<%_ if (site.robots.delay) { _%>
+Crawl-delay: <%= site.robots.delay %>
+<%_ } _%>
+<%_ disallow.forEach(function(path) { %>
 Disallow: <%- path -%>
-<% }); %>
+<%_ }); -%>
+
 <% if (site.robots.sitemap) { %>
-Sitemap: <%- site.robots.sitemap %>
-<% } -%>
+Sitemap: <%- site.website + site.robots.sitemap %>
+<% } _%>
