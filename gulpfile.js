@@ -93,6 +93,7 @@ gulp.task('script', function() {
 
   return gulp
     .src(path.join(base.src, dirname, '**/*.js'))
+    .pipe($.plumber())
     .pipe($.if(isOptimizable, optimizeChains()))
     .pipe(gulp.dest(path.join(base.dist, dirname)));
 });
@@ -120,6 +121,7 @@ gulp.task('others', function() {
 
   return gulp
     .src(path.join(base.src, dirname, '**/*'))
+    .pipe($.plumber())
     .pipe($.if(isEjs, ejsChins()))
     .pipe(gulp.dest(base.dist));
 });
@@ -243,6 +245,7 @@ gulp.task('page', function() {
 
   return gulp
     .src(path.join(site.src, 'pages/**/*' + extName))
+    .pipe($.plumber())
     .pipe($.data(preset))
     .pipe($.pug(opts.pug))
     .pipe(gulp.dest(site.dist));
