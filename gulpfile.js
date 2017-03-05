@@ -105,7 +105,9 @@ gulp.task('others', function() {
   var dirname = 'others';
   var opts = {
     ejs: {
-      site: site
+      site: site,
+      banner: banner,
+      $: viewUtils
     },
     rename: {
       extname: ''

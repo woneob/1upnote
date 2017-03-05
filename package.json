@@ -17,7 +17,10 @@
   "author": {
     "name": "1UP",
     "email": "1up@1upz.com",
-    "url": "https://1upnote.com"
+    "url": "https://1upnote.com",
+    "location": "Seoul, Korea",
+    "twitter": "@1upz",
+    "github": "https://github.com/woneob"
   },
   "contributors": [],
   "license": "MIT",
@@ -68,6 +71,7 @@
   "src": "src",
   "dist": "dist",
   "language": "ko",
+  "timezone": "Asia/Seoul",
   "charset": "utf-8",
   "robots": {
     "agent": "*",
