@@ -130,6 +130,7 @@ gulp.task('others', function() {
 });
 
 gulp.task('page', function() {
+  var dirname = 'pages';
   var routes = router();
   var extName = '.pug';
   var indent = '\u0020'.repeat(2);
@@ -148,13 +149,13 @@ gulp.task('page', function() {
   var getPageName = function(str) {
     return str
       .replace(/\.pug$/, '')
-      .replace(path.join(base.src, 'pages'), '')
+      .replace(path.join(base.src, dirname), '')
       .replace(/\\/g, '/')
       .replace(/^\//, '');
   };
 
   var replaceDestDir = function(to) {
-    return path.join(base.src, 'pages', to);
+    return path.join(base.src, dirname, to);
   };
 
   var assets = function(type, page) {
@@ -174,7 +175,7 @@ gulp.task('page', function() {
       }
     };
 
-    var fileRoot = path.join(site.src, type, 'pages', page.name);
+    var fileRoot = path.join(site.src, type, dirname, page.name);
     var filePath = path.join(fileRoot, cases[type].files);
     var files = glob.sync(filePath);
     var html = '';
@@ -240,14 +241,14 @@ gulp.task('page', function() {
       dest = path.join(page.permalink, defaulFilename);
     }
 
-    file.path = path.join(base.src, 'pages', dest);
+    file.path = path.join(base.src, dirname, dest);
     data.page = page;
 
     return data;
   };
 
   return gulp
-    .src(path.join(site.src, 'pages/**/*' + extName))
+    .src(path.join(site.src, dirname, '**/*' + extName))
     .pipe($.plumber())
     .pipe($.data(preset))
     .pipe($.pug(opts.pug))
