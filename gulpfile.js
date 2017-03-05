@@ -71,7 +71,7 @@ gulp.task('style', function() {
   };
 
   return gulp
-    .src(path.join(site.src, dirname, '/**/*.scss'))
+    .src(path.join(site.src, dirname, '/**/[^_]*.scss'))
     .pipe($.plumber())
     .pipe($.cached(dirname))
     .pipe($.progeny())
