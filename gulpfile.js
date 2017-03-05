@@ -195,7 +195,8 @@ gulp.task('page', function() {
 
     pageName = getPageName(pageName);
     data.posts = routes.posts;
-    data.page = Object.assign({
+
+    var page = Object.assign({
       name: pageName,
       layout: 'default',
       type: 'page',
@@ -206,11 +207,11 @@ gulp.task('page', function() {
     }, routes.pages[pageName]);
 
     file.contents = new Buffer([
-      'extends /' + data.page.layout,
+      'extends /' + page.layout,
       'block append styles',
-      assets('styles', data.page),
+      assets('styles', page),
       'block append scripts',
-      assets('scripts', data.page),
+      assets('scripts', page),
       'block content',
       contents.replace(/^(?!\s*$)/mg, indent)
     ].join('\n'));
@@ -225,11 +226,18 @@ gulp.task('page', function() {
       data[baseName] = contentData;
     });
 
-    var isCustomDest = data.page.permalink !== '/' + pageName;
-    var defaultDest = path.join(data.page.permalink, 'index' + extName);
-    var dest = isCustomDest ? data.page.permalink : defaultDest;
+    var defaulFilename = 'index' + extName;
+    var dest;
+
+    if (page.permalink !== '/' + pageName && path.extname(page.permalink)) {
+      dest = path.join(page.permalink);
+    } else {
+      dest = path.join(page.permalink, defaulFilename);
+    }
 
     file.path = path.join(base.src, 'pages', dest);
+    data.page = page;
+
     return data;
   };
 
