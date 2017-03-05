@@ -62,6 +62,8 @@ gulp.task('style', function() {
   return gulp
     .src(path.join(site.src, dirname, '/**/*.scss'))
     .pipe($.plumber())
+    .pipe($.cached(dirname))
+    .pipe($.progeny())
     .pipe($.sassLint())
     .pipe($.sassLint.format())
     .pipe($.sassLint.failOnError())
@@ -94,6 +96,7 @@ gulp.task('script', function() {
   return gulp
     .src(path.join(base.src, dirname, '**/*.js'))
     .pipe($.plumber())
+    .pipe($.cached(dirname))
     .pipe($.if(isOptimizable, optimizeChains()))
     .pipe(gulp.dest(path.join(base.dist, dirname)));
 });
