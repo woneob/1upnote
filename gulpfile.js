@@ -59,6 +59,17 @@ gulp.task('style', function() {
     ]
   };
 
+  var addBanner = function(file) {
+    file.contents = new Buffer([
+      '/*!',
+      banner,
+      '*/',
+      file.contents.toString()
+    ].join('\n'));
+
+    return;
+  };
+
   return gulp
     .src(path.join(site.src, dirname, '/**/*.scss'))
     .pipe($.plumber())
@@ -67,6 +78,7 @@ gulp.task('style', function() {
     .pipe($.sassLint())
     .pipe($.sassLint.format())
     .pipe($.sassLint.failOnError())
+    .pipe($.data(addBanner))
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.postcss(opts.postcss))
     .pipe(gulp.dest(path.join(site.dist, dirname)));
