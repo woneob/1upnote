@@ -251,10 +251,35 @@ gulp.task('page', function() {
     .pipe(gulp.dest(site.dist));
 });
 
-gulp.task('default', ['server']);
+gulp.task('watch', function() {
+  gulp.watch(path.join(site.src, 'styles/**/*.scss'), [
+    'styles'
+  ]);
+
+  gulp.watch(path.join(site.src, 'scripts/**/*.js'), [
+    'script'
+  ]);
+
+  gulp.watch(path.join(site.src, 'others/**/*'), [
+    'others'
+  ]);
+
+  gulp.watch([
+    path.join(site.src, 'pages/**/*.{yml,pug}'),
+    path.join(site.src, 'layout/**/*.pug'),
+    path.join(site.src, 'data/**/*.yml')
+  ], {
+    dot: true
+  }, [
+    'page'
+  ]);
+});
+
 gulp.task('build', [
   'style',
   'script',
   'others',
   'page'
 ]);
+
+gulp.task('default', $.sequence('build', 'server', 'watch'));
