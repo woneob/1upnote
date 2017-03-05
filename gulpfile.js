@@ -1,6 +1,8 @@
 var fs = require('fs');
 var path = require('path');
 var gulp = require('gulp');
+var argv = require('yargs').argv;
+var del = require('del');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 var lazypipe = require('lazypipe');
@@ -36,6 +38,16 @@ var router = function() {
     posts: posts
   };
 };
+
+gulp.task('clean', function() {
+  $.cached.caches = {};
+
+  if (argv.clean) {
+    return del(path.join(site.dist, '**'));
+  } else {
+    return false;
+  }
+});
 
 gulp.task('server', function() {
   $.connect.server({
@@ -293,11 +305,11 @@ gulp.task('watch', function() {
   ]);
 });
 
-gulp.task('build', [
+gulp.task('build', $.sequence('clean', [
   'style',
   'script',
   'others',
   'page'
-]);
+]));
 
 gulp.task('default', $.sequence('build', 'server', 'watch'));
