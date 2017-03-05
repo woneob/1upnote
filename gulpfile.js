@@ -258,14 +258,10 @@ gulp.task('page', function() {
       data[baseName] = contentData;
     });
 
-    var defaulFilename = 'index' + extName;
-    var dest;
-
-    if (page.permalink !== '/' + pageName && path.extname(page.permalink)) {
-      dest = path.join(page.permalink);
-    } else {
-      dest = path.join(page.permalink, defaulFilename);
-    }
+    var permalink = page.permalink;
+    var isDefaultPl = permalink !== '/' + pageName && path.extname(permalink);
+    var filename = isDefaultPl ? '' : 'index' + extName;
+    var dest = path.join(permalink, filename);
 
     file.path = path.join(base.src, dirname, dest);
     data.page = page;
