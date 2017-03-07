@@ -2,3 +2,34 @@
 @import "base/_mixins";
 @import "base/_reset";
 @import "base/_fonts";
+
+html {
+  background-color: #fff;
+  font-size: 62.5%;
+  text-size-adjust: 100%;
+  color: #4c4c4c;
+}
+
+body {
+  font: 300 1.4rem/1.2 sans-serif;
+}
+
+.siteHeader {
+  padding: 4rem 2rem;
+
+  .logo {
+    .logotype-1up {
+      fill: #2c83bf;
+    }
+
+    .logotype-note {
+      fill: #5a5a5a;
+    }
+  }
+
+  .tagline {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    color: #a0aab8;
+  }
+}

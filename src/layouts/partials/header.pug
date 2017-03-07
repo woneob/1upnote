@@ -1,0 +1,24 @@
+header.siteHeader
+  .logo
+    a(href= '/')
+      svg#logo(
+        viewBox= '0 0 188 38'
+        width= '188'
+        height= '38'
+        aria-labelledby= 'logoTitle')
+
+        title#logoTitle= site.name
+
+        path.logotype-1up(
+          d= 'M5 7H0V0h12v38H5V7zm19-7v23c0 7 3 9 6 9s6-2 6-9V0h7v22c0 10-4 ' +
+            '16-13 16s-13-6-13-16V0h7zm35 0H48v38h7V24h4c6.6 0 12-5.4 ' +
+            '12-12S65.6 0 59 0zm0 18h-4V6h4c3.3 0 6 2.7 6 6s-2.7 6-6 6z')
+
+        path.logotype-note(
+          d= 'M76 38V0h4.9L98 30V0h5v38h-5.7L81 11v27h-5zm47-38c-9 0-16 8-16 ' +
+            '19 0 13 7 19 16 19s16-6 16-19c0-11-7-19-16-19zm0 34c-7 ' +
+            '0-11-7-11-15s4-15 11-15 11 7 11 15-4 15-11 ' +
+            '15zm26-30h-10V0h25v4h-10v34h-5V4zm37 ' +
+            '16h-13v14h15v4h-20V0h19v4h-14v12h13v4z')
+
+    p.tagline= site.tagline
