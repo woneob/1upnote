@@ -332,7 +332,7 @@ gulp.task('page', function() {
 
 gulp.task('watch', function() {
   gulp.watch(path.join(site.src, 'styles/**/*.scss'), [
-    'styles'
+    'style'
   ]);
 
   gulp.watch(path.join(site.src, 'scripts/**/*.js'), [
