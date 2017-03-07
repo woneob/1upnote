@@ -152,10 +152,20 @@ gulp.task('script', function() {
     return disallowList.indexOf(baseDir) < 0;
   };
 
+  var addBanner = function(file) {
+    file.contents = new Buffer([
+      '/*!',
+      banner,
+      '*/',
+      file.contents.toString()
+    ].join('\n'));
+  };
+
   var optimizeChains = lazypipe()
     .pipe($.eslint)
     .pipe($.eslint.format)
-    .pipe($.uglify);
+    .pipe($.uglify)
+    .pipe($.data, addBanner);
 
   return gulp
     .src(path.join(base.src, dirname, '**/*.js'))
