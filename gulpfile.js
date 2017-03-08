@@ -190,10 +190,6 @@ gulp.task('others', function() {
 
   opts.ejs = Object.assign(opts.ejs, router());
 
-  var isEjs = function(file) {
-    return path.extname(file.path) === '.ejs';
-  };
-
   var ejsChins = lazypipe()
     .pipe($.ejs, opts.ejs)
     .pipe($.rename, opts.rename);
@@ -201,7 +197,7 @@ gulp.task('others', function() {
   return gulp
     .src(path.join(base.src, dirname, '**/*'))
     .pipe($.plumber())
-    .pipe($.if(isEjs, ejsChins()))
+    .pipe($.if(/\.ejs$/, ejsChins()))
     .pipe(gulp.dest(base.dist));
 });
 
