@@ -201,6 +201,21 @@ gulp.task('others', function() {
     .pipe(gulp.dest(base.dist));
 });
 
+gulp.task('image', function() {
+  var dirname = 'images';
+
+  var opts = {
+    imagemin: {
+      verbose: true
+    }
+  };
+
+  return gulp
+    .src(path.join(base.src, dirname, '**/*.{gif,jpg,png,svg}'))
+    .pipe($.imagemin(opts.imagemin))
+    .pipe(gulp.dest(path.join(base.dist, dirname)));
+});
+
 gulp.task('page', function() {
   var dirname = 'pages';
   var routes = router();
