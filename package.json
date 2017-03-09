@@ -86,5 +86,13 @@
       "/styles/"
     ],
     "sitemap": "/sitemap.xml"
+  },
+  "icons": {
+    "16x16": "/images/icons/16x16.png",
+    "32x32": "/images/icons/32x32.png",
+    "128x128": "/images/icons/128x128.png",
+    "152x152": "/images/icons/152x152.png",
+    "144x144": "/images/icons/144x144.png",
+    "192x192": "/images/icons/192x192.png"
   }
 }
