@@ -216,6 +216,23 @@ gulp.task('image', function() {
     .pipe(gulp.dest(path.join(base.dist, dirname)));
 });
 
+gulp.task('favicon', function() {
+  var dirname = 'images/icons';
+  var sizes = [
+    '16x16',
+    '32x32'
+  ];
+
+  var icons = sizes.map(function(size) {
+    return path.join(base.src, site.icons[size]);
+  });
+
+  return gulp
+    .src(icons)
+    .pipe($.toIco('favicon.ico'))
+    .pipe(gulp.dest(path.join(base.dist)));
+});
+
 gulp.task('page', function() {
   var dirname = 'pages';
   var routes = router();
