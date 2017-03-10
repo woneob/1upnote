@@ -371,6 +371,10 @@ gulp.task('watch', function() {
     'others'
   ]);
 
+  gulp.watch(path.join(site.src, 'images/**/*.{gif,jpg,png,svg}'), [
+    'image'
+  ]);
+
   gulp.watch([
     path.join(site.src, 'pages/.routes.yml'),
     path.join(site.src, '{pages,layouts}/**/*.pug'),
@@ -383,6 +387,8 @@ gulp.task('watch', function() {
 });
 
 gulp.task('build', $.sequence('clean', [
+  'favicon',
+  'image',
   'style',
   'script',
   'others',
