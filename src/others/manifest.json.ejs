@@ -1,0 +1,17 @@
+{
+  "name": "<%= site.name %>",
+  "short_name": "<%= site.name %>",
+  "icons": [
+  <% Object.keys(site.icons).forEach(function(size, i, t) { %>
+    {
+      "src": "<%- site.icons[size]; %>",
+      "sizes": "<%- size + 'x' + size %>",
+      "type": "<%= 'image/' + /[^.]+$/.exec(site.icons[size]); %>"
+    }<%= t.length - 1 > i ? ',': '' -%>
+  <% }); %>
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "<%= site.colors.background %>",
+  "theme_color": "<%= site.colors.theme %>"
+}

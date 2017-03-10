@@ -1,0 +1,23 @@
+{
+  "version": "<%= site.version %>",
+  "name": "<%= site.name %>",
+  "launch_path": "/",
+  "description": "<%= site.tagline %>",
+  "icons": <%- JSON.stringify(site.icons, null, 4); %>,
+  "developer": {
+    "name": "<%= site.author.name %>",
+    "url": "<%= site.author.url %>"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "<%= site.language %>",
+  "permissions": {
+  },
+  "locales": {
+    "<%= site.language %>": {
+      "name": "<%= site.name %>",
+      "description": "<%= site.tagline %>"
+    }
+  }
+}

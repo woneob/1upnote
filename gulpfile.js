@@ -219,8 +219,8 @@ gulp.task('image', function() {
 gulp.task('favicon', function() {
   var dirname = 'images/icons';
   var sizes = [
-    '16x16',
-    '32x32'
+    '16',
+    '32'
   ];
 
   var icons = sizes.map(function(size) {
