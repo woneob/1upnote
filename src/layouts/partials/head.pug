@@ -9,7 +9,7 @@ if !page.search
     name= 'robots'
     content= 'none')
 
-//- Links to the author of the document -->
+//- Links to the author of the document
 link(
   rel= 'author'
   href= '/humans.txt')
@@ -18,6 +18,18 @@ link(
 link(
   rel= 'manifest'
   href= '/manifest.json')
+
+//- Touch icon for iOS
+link(
+  rel= 'apple-touch-icon'
+  href= site.icons[152])
+
+//- Favicon for older versions of Chrome
+link(
+  rel= 'icon'
+  type= 'image/png'
+  sizes= '192x192'
+  href= site.icons[192])
 
 block styles
   link(
