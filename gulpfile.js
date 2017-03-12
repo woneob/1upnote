@@ -12,7 +12,7 @@ var yaml = require('js-yaml');
 var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
 var viewUtils = require('./lib/viewUtils')();
-var banner = require('./lib/banner')(site);
+var banner = require('./lib/banner')(site, viewUtils.date);
 var argv = require('./lib/argv')(yargs);
 
 var objectFilter = function(obj, predicate) {
