@@ -36,11 +36,12 @@ var router = function() {
 gulp.task('clean', function() {
   $.cached.caches = {};
 
-  if (argv.clean) {
-    return del(path.join(site.dist, '**'));
-  } else {
-    return false;
+  if (!argv.clean) {
+    $.util.log('clean task passed. use "--clean" option');
+    return;
   }
+
+  return del(path.join(site.dist, '**'));
 });
 
 gulp.task('server', function() {

@@ -61,6 +61,7 @@
     "gulp-sequence": "0.4.6",
     "gulp-to-ico": "1.0.0",
     "gulp-uglify": "2.0.1",
+    "gulp-util": "3.0.8",
     "js-yaml": "3.8.1",
     "lazypipe": "1.0.1",
     "pug": "2.0.0-beta11",
@@ -92,8 +93,8 @@
     "16": "/images/icons/16x16.png",
     "32": "/images/icons/32x32.png",
     "128": "/images/icons/128x128.png",
-    "152": "/images/icons/152x152.png",
     "144": "/images/icons/144x144.png",
+    "152": "/images/icons/152x152.png",
     "192": "/images/icons/192x192.png"
   },
   "colors": {
