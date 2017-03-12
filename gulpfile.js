@@ -178,7 +178,7 @@ gulp.task('script', function() {
     .pipe(gulp.dest(path.join(base.dist, dirname)));
 });
 
-gulp.task('others', function() {
+gulp.task('others', function(done) {
   var dirname = 'others';
   var opts = {
     ejs: {
@@ -188,6 +188,13 @@ gulp.task('others', function() {
     },
     rename: {
       extname: ''
+    },
+    plumber: function(done) {
+      return {
+        errorHandler: function(err) {
+          done(err);
+        }
+      };
     }
   };
 
@@ -199,7 +206,7 @@ gulp.task('others', function() {
 
   return gulp
     .src(path.join(base.src, dirname, '**/*'))
-    .pipe($.plumber())
+    .pipe($.plumber(opts.plumber(done)))
     .pipe($.if(/\.ejs$/, ejsChins()))
     .pipe(gulp.dest(base.dist));
 });
