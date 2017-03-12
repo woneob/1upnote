@@ -4,10 +4,12 @@ meta(charset= site.charset)
 //- Document title
 title= (page.title ? page.title + ' - ' : '') + site.name
 
-//- Description of the page
+//- Description of the page (limit to 150 characters)
 meta(
   name= 'description'
-  content= page.description || site.description)
+  content= $.truncate(page.description || site.description, {
+    max: 150
+  }))
 
 //- Defining The Viewport
 meta(
