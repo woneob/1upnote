@@ -11,8 +11,8 @@ var glob = require('glob');
 var yaml = require('js-yaml');
 var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
-var viewUtils = require('./lib/viewUtils.js')();
-var banner = require('./lib/banner.js')(site);
+var viewUtils = require('./lib/viewUtils')();
+var banner = require('./lib/banner')(site);
 
 var objectFilter = function(obj, predicate) {
   return Object.keys(obj).filter(function(key) {
