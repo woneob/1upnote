@@ -32,6 +32,11 @@ link(
   rel= 'author'
   href= '/humans.txt')
 
+//- Helps prevent duplicate content issues
+link(
+  rel= 'canonical'
+  href= site.website + page.permalink)
+
 //- Web Application Manifest
 link(
   rel= 'manifest'
