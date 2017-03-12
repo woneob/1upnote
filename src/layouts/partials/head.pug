@@ -16,6 +16,11 @@ meta(
   name= 'viewport'
   content= $.serialize(page.viewport || site.viewport))
 
+//- Name of web application
+meta(
+  name= 'application-name'
+  content= site.name)
+
 //- Disable automatic detection and formatting
 meta(
   name= 'format-detection'
