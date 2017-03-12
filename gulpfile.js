@@ -100,13 +100,17 @@ gulp.task('style', function() {
   var dirname = 'styles';
 
   var opts = {
+    sass: {
+      outputStyle: 'expanded'
+    },
     postcss: [
       autoprefixer({
         remove: false,
         cascade: false
       }),
       cssnano({
-        safe: true
+        safe: true,
+        core: !argv.pretty
       })
     ]
   };
@@ -131,7 +135,7 @@ gulp.task('style', function() {
     .pipe($.sassLint.format())
     .pipe($.sassLint.failOnError())
     .pipe($.data(addBanner))
-    .pipe($.sass().on('error', $.sass.logError))
+    .pipe($.sass(opts.sass).on('error', $.sass.logError))
     .pipe($.postcss(opts.postcss))
     .pipe(gulp.dest(path.join(site.dist, dirname)));
 });
@@ -139,6 +143,10 @@ gulp.task('style', function() {
 gulp.task('script', function() {
   var dirname = 'scripts';
   var isOptimizable = function(file) {
+    if (argv.pretty) {
+      return false;
+    }
+
     var originPath = file.path;
     var stripPath = path.join(base.src, dirname, '/');
     var originDir = path.dirname(originPath.replace(stripPath, ''));
@@ -241,7 +249,7 @@ gulp.task('page', function() {
   var opts = {
     pug: {
       basedir: path.join(base.src, 'layouts'),
-      pretty: false,
+      pretty: argv.pretty,
       data: {
         banner: banner,
         site: site,
