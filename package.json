@@ -99,5 +99,11 @@
   "colors": {
     "theme": "#2c83bf",
     "background": "#ffffff"
+  },
+  "formatDetection": {
+    "telephone": "no",
+    "date": "no",
+    "address": "no",
+    "email": "no"
   }
 }

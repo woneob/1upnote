@@ -9,6 +9,11 @@ if !page.search
     name= 'robots'
     content= 'none')
 
+//- Disable automatic detection and formatting
+meta(
+  name= 'format-detection'
+  content= $.serialize(site.formatDetection))
+
 //- Links to the author of the document
 link(
   rel= 'author'
