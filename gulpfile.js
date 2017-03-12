@@ -51,38 +51,38 @@ gulp.task('clean', function() {
 });
 
 gulp.task('server', function() {
+  var notFoundError = function(req, res, next) {
+    var reqUrlPathname = url.parse(req.url).pathname;
+    var reqPathObj = path.parse(reqUrlPathname);
+    var filePath;
+
+    if (req.method === 'GET' && reqPathObj.ext === '') {
+      filePath = path.join(base.dist, reqUrlPathname, 'index.html');
+
+      fs.exists(filePath, function(exists) {
+        var notFoundPath;
+        var notFoundStream;
+
+        if (exists) {
+          next();
+        } else {
+          res.writeHead(404, {
+            'Content-Type': 'text/html'
+          });
+
+          notFoundPath = path.join(base.dist, '404.html');
+          notFoundStream  = fs.createReadStream(notFoundPath);
+          notFoundStream.pipe(res);
+        }
+      });
+    } else {
+      next();
+    }
+  };
+
   var middleware = function(connect, opt) {
-    var norFoundMiddleware = function(req, res, next) {
-      var reqUrlPathname = url.parse(req.url).pathname;
-      var reqPathObj = path.parse(reqUrlPathname);
-      var filePath;
-
-      if (req.method === 'GET' && reqPathObj.ext === '') {
-        filePath = path.join(base.dist, reqUrlPathname, 'index.html');
-
-        fs.exists(filePath, function(exists) {
-          var notFoundPath;
-          var notFoundStream;
-
-          if (exists) {
-            next();
-          } else {
-            res.writeHead(404, {
-              'Content-Type': 'text/html'
-            });
-
-            notFoundPath = path.join(base.dist, '404.html');
-            notFoundStream  = fs.createReadStream(notFoundPath);
-            notFoundStream.pipe(res);
-          }
-        });
-      } else {
-        next();
-      }
-    };
-
     return [
-      norFoundMiddleware
+      notFoundError
     ];
   };
 
