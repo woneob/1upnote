@@ -2,7 +2,7 @@ var fs = require('fs');
 var url = require('url');
 var path = require('path');
 var gulp = require('gulp');
-var argv = require('yargs').argv;
+var yargs = require('yargs');
 var del = require('del');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
@@ -13,6 +13,7 @@ var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
 var viewUtils = require('./lib/viewUtils')();
 var banner = require('./lib/banner')(site);
+var argv = require('./lib/argv')(yargs);
 
 var objectFilter = function(obj, predicate) {
   return Object.keys(obj).filter(function(key) {
