@@ -90,6 +90,7 @@ gulp.task('server', function() {
   var opts = {
     name: site.name + ' development server',
     root: site.dist,
+    port: argv.port,
     livereload: false,
     middleware: middleware
   };
