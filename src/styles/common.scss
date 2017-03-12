@@ -31,7 +31,7 @@ body {
       overflow: hidden;
       padding-top: percentage(38 / 188);
 
-      svg {
+      .logotype {
         position: absolute;
         top: 0;
         right: 0;
@@ -40,15 +40,28 @@ body {
         width: 100%;
         height: 100%;
         margin: auto;
+
+        .logotype-1up {
+          fill: #2c83bf;
+        }
+
+        .logotype-note {
+          fill: #5a5a5a;
+        }
       }
-    }
 
-    .logotype-1up {
-      fill: #2c83bf;
-    }
+      &:hover,
+      &:focus {
+        .logotype {
+          .logotype-1up {
+            fill: #005fa0;
+          }
 
-    .logotype-note {
-      fill: #5a5a5a;
+          .logotype-note {
+            fill: #222;
+          }
+        }
+      }
     }
   }
 
@@ -58,5 +71,6 @@ body {
     text-transform: capitalize;
     font-size: 1.2rem;
     color: #a0aab8;
+    cursor: default;
   }
 }
