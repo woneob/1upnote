@@ -1,5 +1,10 @@
-title= (page.title ? page.title + ' - ' : '') + site.name
+//- set character encoding for the document
 meta(charset= site.charset)
+
+//- Document title
+title= (page.title ? page.title + ' - ' : '') + site.name
+
+//- Description of the page
 meta(
   name= 'description'
   content= page.description || site.description)
