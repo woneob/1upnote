@@ -15,14 +15,6 @@ var utils = require('./lib/utils')();
 var banner = require('./lib/banner')(site, utils.date);
 var argv = require('./lib/argv')(yargs);
 
-var objectFilter = function(obj, predicate) {
-  return Object.keys(obj).filter(function(key) {
-    return predicate(obj[key]);
-  }).reduce(function(res, key) {
-    return res[key] = obj[key], res;
-  }, {});
-};
-
 var base = {
   src: path.resolve(__dirname, site.src),
   dist: path.resolve(__dirname, site.dist)
@@ -31,7 +23,7 @@ var base = {
 var router = function() {
   var file = fs.readFileSync(path.join(base.src, 'pages/.routes.yml'));
   var pages = yaml.safeLoad(file);
-  var posts = objectFilter(pages, function(item) {
+  var posts = utils.objectFilter(pages, function(item) {
     return item.type === 'post';
   });
 
