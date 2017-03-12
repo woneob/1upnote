@@ -100,6 +100,11 @@
     "theme": "#2c83bf",
     "background": "#ffffff"
   },
+  "viewport": {
+    "width": "device-width",
+    "initialScale": 1,
+    "userScalable": "no"
+  },
   "formatDetection": {
     "telephone": "no",
     "date": "no",

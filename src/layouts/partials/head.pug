@@ -4,15 +4,21 @@ meta(
   name= 'description'
   content= page.description || site.description)
 
-if !page.search
-  meta(
-    name= 'robots'
-    content= 'none')
+//- Defining The Viewport
+meta(
+  name= 'viewport'
+  content= $.serialize(page.viewport || site.viewport))
 
 //- Disable automatic detection and formatting
 meta(
   name= 'format-detection'
   content= $.serialize(site.formatDetection))
+
+//- Control the behavior of search engine crawling
+if !page.search
+  meta(
+    name= 'robots'
+    content= 'none')
 
 //- Links to the author of the document
 link(
