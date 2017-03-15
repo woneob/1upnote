@@ -9,6 +9,7 @@ var cssnano = require('cssnano');
 var lazypipe = require('lazypipe');
 var glob = require('glob');
 var yaml = require('js-yaml');
+var chalk = require('chalk');
 var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
 var utils = require('./lib/utils')();
@@ -37,7 +38,14 @@ gulp.task('clean', function() {
   $.cached.caches = {};
 
   if (!argv.clean) {
-    $.util.log('clean task passed. use "--clean" option');
+    $.util.log(
+      chalk.yellow('warn: '),
+      chalk.cyan('clean'),
+      'task passed. use',
+      chalk.green('--clean'),
+      'option'
+    );
+
     return;
   }
 
