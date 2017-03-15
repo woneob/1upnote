@@ -197,12 +197,9 @@ gulp.task('others', function(done) {
     rename: {
       extname: ''
     },
-    plumber: function(done) {
-      return {
-        errorHandler: function(err) {
-          done(err);
-        }
-      };
+    plumber: function(error) {
+      $.util.log(chalk.red(error.message));
+      this.emit('end');
     }
   };
 
@@ -214,7 +211,7 @@ gulp.task('others', function(done) {
 
   return gulp
     .src(path.join(base.src, dirname, '**/*'))
-    .pipe($.plumber(opts.plumber(done)))
+    .pipe($.plumber(opts.plumber))
     .pipe($.if(/\.ejs$/, ejsChins()))
     .pipe(gulp.dest(base.dist));
 });
