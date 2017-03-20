@@ -5,7 +5,7 @@ h2 posts
     each item, link in posts
       .listWrap
         dt.subject
-          a(href= '/' + link)
+          a(href= item.permalink)
             = item.title
         dd
           dl

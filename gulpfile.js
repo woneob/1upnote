@@ -186,36 +186,6 @@ gulp.task('script', function() {
     .pipe(gulp.dest(path.join(base.dist, dirname)));
 });
 
-gulp.task('others', function(done) {
-  var dirname = 'others';
-  var opts = {
-    ejs: {
-      site: site,
-      banner: banner,
-      $: utils
-    },
-    rename: {
-      extname: ''
-    },
-    plumber: function(error) {
-      $.util.log(chalk.red(error.message));
-      this.emit('end');
-    }
-  };
-
-  opts.ejs = Object.assign(opts.ejs, router());
-
-  var ejsChins = lazypipe()
-    .pipe($.ejs, opts.ejs)
-    .pipe($.rename, opts.rename);
-
-  return gulp
-    .src(path.join(base.src, dirname, '**/*'))
-    .pipe($.plumber(opts.plumber))
-    .pipe($.if(/\.ejs$/, ejsChins()))
-    .pipe(gulp.dest(base.dist));
-});
-
 gulp.task('image', function() {
   var dirname = 'images';
 
@@ -249,32 +219,64 @@ gulp.task('favicon', function() {
 });
 
 gulp.task('page', function() {
-  var dirname = 'pages';
-  var routes = router();
-  var extName = '.pug';
+  var dirs = {
+    page: 'pages',
+    other: 'others'
+  };
+
+  var exts = {
+    view: '.pug',
+    data: '.yml'
+  };
+
   var indent = '\u0020'.repeat(2);
+  var routerFile = '.routes2' + exts.data;
+  var routerPath = path.join(base.src, dirs.page, routerFile);
+  var routerStr = fs.readFileSync(routerPath);
+  var routers = yaml.safeLoad(routerStr);
+
+  var dataObj = {
+    banner: banner,
+    site: site,
+    $: utils,
+    pages: routers.map(function(router) {
+      router = Object.assign({
+        file: '',
+        layout: 'default',
+        type: 'page',
+        title: '',
+        description: '',
+        summary: '',
+        permalink: router.file,
+        date: new Date().toString(),
+        search: true,
+        data: {},
+        plugins: []
+      }, router);
+
+      return router;
+    })
+  };
+
+  dataObj.posts = dataObj.pages.filter(function(page) {
+    return page.type === 'post';
+  }).sort(function(a, b) {
+    return new Date(a.date) - new Date(b.date);
+  }).reverse();
+
   var opts = {
     pug: {
       basedir: path.join(base.src, 'layouts'),
-      pretty: argv.pretty,
-      data: {
-        banner: banner,
-        site: site,
-        $: utils
-      }
+      pretty: argv.pretty
+    },
+    ejs: dataObj,
+    rename: {
+      extname: ''
+    },
+    plumber: function(error) {
+      $.util.log(chalk.red(error.message));
+      this.emit('end');
     }
-  };
-
-  var getPageName = function(str) {
-    return str
-      .replace(/\.pug$/, '')
-      .replace(path.join(base.src, dirname), '')
-      .replace(/\\/g, '/')
-      .replace(/^\//, '');
-  };
-
-  var replaceDestDir = function(to) {
-    return path.join(base.src, dirname, to);
   };
 
   var assets = function(type, page) {
@@ -294,7 +296,7 @@ gulp.task('page', function() {
       }
     };
 
-    var fileRoot = path.join(site.src, type, dirname, page.name);
+    var fileRoot = path.join(site.src, type, dirs.page, page.file);
     var filePath = path.join(fileRoot, cases[type].files);
     var files = glob.sync(filePath);
     var html = '';
@@ -313,26 +315,40 @@ gulp.task('page', function() {
     return html;
   };
 
+  var getPageName = function(str) {
+    return str
+      .replace(/\.pug$/, '')
+      .replace(path.join(base.src, dirs.page), '')
+      .replace(/\\/g, '/')
+      .replace(/^\//, '');
+  };
+
   var preset = function(file) {
     var contents = file.contents.toString();
-    var pageName = file.path;
-    var data = {};
+    var pageName = getPageName(file.path);
 
-    pageName = getPageName(pageName);
-    data.posts = routes.posts;
+    var data = Object.assign(dataObj, {
+      data: {},
+      page: dataObj.pages.find(function(p) {
+        return p.file === '/' + pageName;
+      })
+    });
 
-    var page = Object.assign({
-      name: pageName,
-      layout: 'default',
-      type: 'page',
-      title: '',
-      description: '',
-      summary: '',
-      permalink: '/' + pageName,
-      date: new Date().toISOString(),
-      search: true,
-      plugins: []
-    }, routes.pages[pageName]);
+    var page = data.page;
+    var dataFile = '*' + exts.data;
+    var dataPath = path.join(base.src, 'data/pages', page.file, dataFile);
+    var dataGlob = glob.sync(dataPath);
+
+    dataGlob.forEach(function(file) {
+      var baseName = path.basename(file, exts.data);
+      var contentData = yaml.safeLoad(fs.readFileSync(file));
+      data.data[baseName] = contentData;
+    });
+
+    file.path = (function(filePath) {
+      filePath += path.extname(filePath) ? '' : '/index' + exts.view;
+      return path.join(base.src, dirs.page, filePath);
+    })(page.permalink);
 
     file.contents = new Buffer([
       'extends /' + page.layout,
@@ -344,33 +360,28 @@ gulp.task('page', function() {
       contents.replace(/^(?!\s*$)/mg, indent)
     ].join('\n'));
 
-    var contentPath = path.join(base.src, 'data/pages', pageName, '*.yml');
-    var contents = glob.sync(contentPath);
-
-    contents.forEach(function(content) {
-      var baseName = path.basename(content, '.yml');
-      var contentData = yaml.safeLoad(fs.readFileSync(content, 'utf-8'));
-
-      data[baseName] = contentData;
-    });
-
-    var permalink = page.permalink;
-    var isDefaultPl = permalink !== '/' + pageName && path.extname(permalink);
-    var filename = isDefaultPl ? '' : 'index' + extName;
-    var dest = path.join(permalink, filename);
-
-    file.path = path.join(base.src, dirname, dest);
-    data.page = page;
-
     return data;
   };
 
+  var otherCompile = function() {
+    var ejsChins = lazypipe()
+      .pipe($.ejs, opts.ejs)
+      .pipe($.rename, opts.rename);
+
+    return gulp
+      .src(path.join(base.src, dirs.other, '**/*'))
+      .pipe($.plumber(opts.plumber))
+      .pipe($.if(/\.ejs$/, ejsChins()))
+      .pipe(gulp.dest(base.dist));
+  };
+
   return gulp
-    .src(path.join(site.src, dirname, '**/*' + extName))
+    .src(path.join(base.src, dirs.page, '**/*' + exts.view))
     .pipe($.plumber())
     .pipe($.data(preset))
     .pipe($.pug(opts.pug))
-    .pipe(gulp.dest(site.dist));
+    .pipe(gulp.dest(site.dist))
+    .on('end', otherCompile);
 });
 
 gulp.task('watch', function() {
@@ -382,10 +393,6 @@ gulp.task('watch', function() {
     'script'
   ]);
 
-  gulp.watch(path.join(site.src, 'others/**/*'), [
-    'others'
-  ]);
-
   gulp.watch(path.join(site.src, 'images/**/*.{gif,jpg,png,svg}'), [
     'image'
   ]);
@@ -393,6 +400,7 @@ gulp.task('watch', function() {
   gulp.watch([
     path.join(site.src, 'pages/.routes.yml'),
     path.join(site.src, '{pages,layouts}/**/*.pug'),
+    path.join(site.src, 'others/**/*'),
     path.join(site.src, 'data/**/*.yml')
   ], {
     dot: true
@@ -406,7 +414,6 @@ gulp.task('build', $.sequence('clean', [
   'image',
   'style',
   'script',
-  'others',
   'page'
 ]));
 
