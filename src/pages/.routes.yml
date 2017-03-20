@@ -1,9 +1,11 @@
 # pages
-index:
+-
+  file: /index
   permalink: /
   date: 2017-02-30T14:00:00
 
-404:
+-
+  file: /404
   type: error
   permalink: /404.html
   title: Page Not Found
@@ -12,7 +14,8 @@ index:
   search: false
 
 # posts
-hello-world:
+-
+  file: /hello-world
   type: post
   title: Hello World
   description: test page
