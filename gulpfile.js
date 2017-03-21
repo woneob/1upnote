@@ -230,7 +230,7 @@ gulp.task('page', function() {
   };
 
   var indent = '\u0020'.repeat(2);
-  var routerFile = '.routes2' + exts.data;
+  var routerFile = '.routes' + exts.data;
   var routerPath = path.join(base.src, dirs.page, routerFile);
   var routerStr = fs.readFileSync(routerPath);
   var routers = yaml.safeLoad(routerStr);
