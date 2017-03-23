@@ -14,7 +14,7 @@ rss(
       description= site.tagline
       link= site.website
 
-    lastBuildDate= $.date(posts[0].date, 'ddd, d mmm yyyy HH:MM:ss o')
+    lastBuildDate= $.date(posts[0].date, 'rfc822')
     managingEditor= site.author.email + ' (' + site.author.name + ')'
     webMaster= site.author.email + ' (' + site.author.name + ')'
 
@@ -22,7 +22,7 @@ rss(
       item
         title= post.title
         description= post.article
-        pubDate= $.date(post.date, 'ddd, d mmm yyyy HH:MM:ss o')
+        pubDate= $.date(post.date, 'rfc822')
         link= site.website + post.permalink
         guid(
           isPermaLink= 'true')
