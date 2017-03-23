@@ -10,6 +10,7 @@ var lazypipe = require('lazypipe');
 var glob = require('glob');
 var yaml = require('js-yaml');
 var chalk = require('chalk');
+var cheerio = require('cheerio');
 var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
 var utils = require('./lib/utils')();
@@ -23,10 +24,29 @@ var base = {
 
 var router = function() {
   var file = fs.readFileSync(path.join(base.src, 'pages/.routes.yml'));
-  var pages = yaml.safeLoad(file);
-  var posts = utils.objectFilter(pages, function(item) {
-    return item.type === 'post';
+  var pages = yaml.safeLoad(file).map(function(page) {
+    page = Object.assign({
+      file: '',
+      layout: 'default',
+      type: 'page',
+      title: '',
+      description: '',
+      summary: '',
+      permalink: page.file,
+      date: new Date().toString(),
+      search: true,
+      data: {},
+      plugins: []
+    }, page);
+
+    return page;
   });
+
+  var posts = pages.filter(function(page) {
+    return page.type === 'post';
+  }).sort(function(a, b) {
+    return new Date(a.date) - new Date(b.date);
+  }).reverse();
 
   return {
     pages: pages,
@@ -230,39 +250,15 @@ gulp.task('page', function() {
   };
 
   var indent = '\u0020'.repeat(2);
-  var routerFile = '.routes' + exts.data;
-  var routerPath = path.join(base.src, dirs.page, routerFile);
-  var routerStr = fs.readFileSync(routerPath);
-  var routers = yaml.safeLoad(routerStr);
+  var routes = router();
 
   var dataObj = {
     banner: banner,
     site: site,
     $: utils,
-    pages: routers.map(function(router) {
-      router = Object.assign({
-        file: '',
-        layout: 'default',
-        type: 'page',
-        title: '',
-        description: '',
-        summary: '',
-        permalink: router.file,
-        date: new Date().toString(),
-        search: true,
-        data: {},
-        plugins: []
-      }, router);
-
-      return router;
-    })
+    pages: routes.pages,
+    posts: routes.posts
   };
-
-  dataObj.posts = dataObj.pages.filter(function(page) {
-    return page.type === 'post';
-  }).sort(function(a, b) {
-    return new Date(a.date) - new Date(b.date);
-  }).reverse();
 
   var opts = {
     pug: {
@@ -384,6 +380,62 @@ gulp.task('page', function() {
     .on('end', otherCompile);
 });
 
+gulp.task('feed', function() {
+  var opts = {
+    cheerio: {
+      ignoreWhitespace: true,
+      xmlMode: true
+    },
+    pug: {
+      pretty: argv.pretty,
+      data: {
+        banner: banner,
+        site: site,
+        $: utils,
+        posts: router().posts
+      }
+    },
+    rename: {
+      extname: '.xml'
+    }
+  };
+
+  var postFileName = function(filePath) {
+    return filePath
+      .replace(base.dist, '')
+      .replace(/\\/g, '/')
+      .replace(/index\.html$/i, '')
+      .replace(/(.+)\/$/, '$1');
+  };
+
+  var setArticle = function(file) {
+    var postIdx = opts.pug.data.posts.findIndex(function(post) {
+      return post.permalink === postFileName(file.path);
+    });
+
+    if (postIdx < 0) {
+      return;
+    }
+
+    var contents = file.contents.toString();
+    var dom = cheerio.load(contents, opts.cheerio);
+
+    opts.pug.data.posts[postIdx].article = dom('main').html();
+    return;
+  };
+
+  return gulp
+    .src(path.join(base.dist, '**/*.html'))
+    .pipe($.data(setArticle))
+    .on('end', function() {
+      return gulp
+        .src(path.join(base.src, 'feed/feed.pug'))
+        .pipe($.pug(opts.pug))
+        .pipe($.rename(opts.rename))
+        .pipe(gulp.dest(base.dist));
+    });
+});
+
 gulp.task('watch', function() {
   gulp.watch(path.join(site.src, 'styles/**/*.scss'), [
     'style'
@@ -415,6 +467,6 @@ gulp.task('build', $.sequence('clean', [
   'style',
   'script',
   'page'
-]));
+], 'feed'));
 
 gulp.task('default', $.sequence('build', 'server', 'watch'));

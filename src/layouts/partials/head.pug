@@ -59,6 +59,13 @@ link(
   sizes= '192x192'
   href= site.icons[192])
 
+//- Feeds
+link(
+  rel= 'alternate'
+  type= 'application/rss+xml'
+  title= site.name
+  href= site.website + site.rss)
+
 block styles
   link(
     rel= 'stylesheet'

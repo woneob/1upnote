@@ -1,0 +1,29 @@
+doctype xml
+rss(
+  version= '2.0'
+  xmlns:atom= 'http://www.w3.org/2005/Atom')
+
+  channel
+    title= site.name
+    description= site.tagline
+    link= site.website
+    language= site.language
+    image
+      url= site.website + site.icons[192]
+      title= site.name
+      description= site.tagline
+      link= site.website
+
+    lastBuildDate= $.date(posts[0].date, 'ddd, d mmm yyyy HH:MM:ss o')
+    managingEditor= site.author.email + ' (' + site.author.name + ')'
+    webMaster= site.author.email + ' (' + site.author.name + ')'
+
+    each post in posts
+      item
+        title= post.title
+        description= post.article
+        pubDate= $.date(post.date, 'ddd, d mmm yyyy HH:MM:ss o')
+        link= site.website + post.permalink
+        guid(
+          isPermaLink= 'true')
+          = site.website + post.permalink
