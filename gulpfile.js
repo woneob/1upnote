@@ -50,7 +50,8 @@ var router = function() {
 
   return {
     pages: pages,
-    posts: posts
+    posts: posts,
+    totalPosts: posts.length
   };
 };
 
@@ -250,15 +251,11 @@ gulp.task('page', function() {
   };
 
   var indent = '\u0020'.repeat(2);
-  var routes = router();
-
-  var dataObj = {
+  var dataObj = Object.assign({
     banner: banner,
     site: site,
-    $: utils,
-    pages: routes.pages,
-    posts: routes.posts
-  };
+    $: utils
+  }, router());
 
   var opts = {
     pug: {
@@ -325,8 +322,8 @@ gulp.task('page', function() {
 
     var data = Object.assign(dataObj, {
       data: {},
-      page: dataObj.pages.find(function(p) {
-        return p.file === '/' + pageName;
+      page: dataObj.pages.find(function(page) {
+        return page.file === '/' + pageName;
       })
     });
 
@@ -345,6 +342,24 @@ gulp.task('page', function() {
       filePath += path.extname(filePath) ? '' : '/index' + exts.view;
       return path.join(base.src, dirs.page, filePath);
     })(page.permalink);
+
+    page.nearbyPosts = {};
+
+    var postIdx;
+    var hasOlderPost;
+    var hasNewerPost;
+
+    if (page.type === 'post') {
+      postIdx = dataObj.posts.findIndex(function(post) {
+        return post.file === '/' + pageName;
+      });
+
+      hasOlderPost = postIdx + 1 <= dataObj.totalPosts - 1;
+      hasNewerPost = postIdx - 1 >= 0;
+
+      page.nearbyPosts.older = hasOlderPost ? dataObj.posts[postIdx + 1] : null;
+      page.nearbyPosts.newer = hasNewerPost ? dataObj.posts[postIdx - 1] : null;
+    }
 
     file.contents = new Buffer([
       'extends /' + page.layout,

@@ -1,0 +1,15 @@
+if page.nearbyPosts.older || page.nearbyPosts.newer
+  nav.postPagination
+    dl
+      each post, type in page.nearbyPosts
+        if post
+          .pagerWrap
+            dt= type
+            dd
+              a(
+                href= post.permalink
+                title= type + ' post: ' + post.title)
+                = post.title
+              time(
+                datetime= $.date(post.date, 'isoUtcDateTime'))
+                = $.date(post.date, 'withDash')
