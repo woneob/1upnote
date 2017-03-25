@@ -33,7 +33,7 @@ var router = function() {
       description: '',
       summary: '',
       permalink: page.file,
-      date: new Date().toString(),
+      date: new Date().toISOString(),
       search: true,
       data: {},
       plugins: []

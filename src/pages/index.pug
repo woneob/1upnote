@@ -14,7 +14,7 @@ h2 posts
             dt date
             dd
             time(datetime= $.date(item.date, 'isoUtcDateTime'))
-              = $.date(item.date, 'yyyy-mm-dd')
+              = $.date(item.date, 'withDash')
             dt tags
             dd
               ul

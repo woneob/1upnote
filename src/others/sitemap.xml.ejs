@@ -4,7 +4,7 @@
   <%_ if (pages[page].search !== false) { _%>
   <url>
     <loc><%- site.website + (pages[page].permalink || '/' + page) %></loc>
-    <lastmod><%= pages[page].date.toISOString() %></lastmod>
+    <lastmod><%= pages[page].date %></lastmod>
     <changefreq><%= pages[page].changefreq || 'always' %></changefreq>
   </url>
   <%_ } _%>
