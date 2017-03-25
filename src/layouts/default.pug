@@ -16,9 +16,17 @@ html(
     include partials/header
 
     main
-      block content
+      if page.type === 'post'
+        article
+          header.postHeader
+            include partials/postHeader
+          .postContent
+            block content
+          footer.postFooter
+            include partials/postPagination
+            include partials/postShare
 
-    if page.type === 'post'
-      include partials/postPagination
+      else
+        block content
 
     block scripts

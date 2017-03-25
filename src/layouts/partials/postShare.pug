@@ -1,0 +1,40 @@
+-
+  var shares = {
+    twitter: {
+      name: 'Twitter',
+      url: [
+        'https://twitter.com/intent/tweet?text=',
+        page.title,
+        ' - ',
+        site.website,
+        page.permalink
+      ].join('')
+    },
+    facebook: {
+      name: 'Facebook',
+      url:[
+        'https://www.facebook.com/sharer/sharer.php?u=',
+        site.website,
+        page.permalink
+      ].join('')
+    },
+    googlePlus: {
+      name: 'Google+',
+      url: [
+        'https://plus.google.com/share?url=',
+        site.website,
+        page.permalink
+      ].join('')
+    }
+  };
+
+.postShare
+  h3 Share Post
+
+  ul
+    each service, name in shares
+      li(class= name)
+        a.shareLink(
+          href= service.url
+          title= 'Share on ' + service.name)
+          = service.name
