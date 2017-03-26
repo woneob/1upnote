@@ -13,8 +13,8 @@ var chalk = require('chalk');
 var cheerio = require('cheerio');
 var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
-var utils = require('./lib/utils')();
-var filters = require('./lib/filters')();
+var utils = require('./lib/utils');
+var filters = require('./lib/filters');
 var banner = require('./lib/banner')(site, utils.date);
 var argv = require('./lib/argv')(yargs);
 
