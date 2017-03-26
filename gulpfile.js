@@ -400,7 +400,7 @@ gulp.task('page', function() {
 gulp.task('feed', function() {
   var opts = {
     cheerio: {
-      ignoreWhitespace: true,
+      ignoreWhitespace: false,
       xmlMode: true
     },
     pug: {
