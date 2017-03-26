@@ -14,6 +14,7 @@ var cheerio = require('cheerio');
 var $ = require('gulp-load-plugins')();
 var site =  require('./package.json');
 var utils = require('./lib/utils')();
+var filters = require('./lib/filters')();
 var banner = require('./lib/banner')(site, utils.date);
 var argv = require('./lib/argv')(yargs);
 
@@ -260,7 +261,8 @@ gulp.task('page', function() {
   var opts = {
     pug: {
       basedir: path.join(base.src, 'layouts'),
-      pretty: argv.pretty
+      pretty: argv.pretty,
+      filters: filters
     },
     ejs: dataObj,
     rename: {
