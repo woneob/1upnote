@@ -435,7 +435,7 @@ gulp.task('feed', function() {
     var contents = file.contents.toString();
     var dom = cheerio.load(contents, opts.cheerio);
 
-    opts.pug.data.posts[postIdx].article = dom('main').html();
+    opts.pug.data.posts[postIdx].article = dom('#postContent').html();
     return;
   };
 
