@@ -1,0 +1,35 @@
+-
+  var archiveData = posts.reduce(function(groups, item) {
+    var val = item.date;
+    var dateKey = $.date(val, 'yyyy-mm');
+
+    var groupIdx = groups.findIndex(function(groupItem) {
+      return dateKey === groupItem.dateKey;
+    });
+
+    if (groupIdx > -1) {
+      groups[groupIdx].posts.push(item);
+    } else {
+      groups.push({
+        date: val,
+        dateKey: dateKey,
+        posts: [
+          item
+        ]
+      });
+    }
+
+    return groups;
+  }, []);
+
+.archive
+  h1 Archives
+
+  each group in archiveData
+    h2= $.date(group.date, 'mmmm yyyy')
+
+    dl
+      each post, i in group.posts
+        dt= $.date(post.date, 'd')
+        dd
+          a(href= post.permalink)= post.title
