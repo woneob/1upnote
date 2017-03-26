@@ -20,8 +20,10 @@ html(
         article
           header.postHeader
             include partials/postHeader
+
           .postContent
             block content
+
           footer.postFooter
             include partials/postPagination
             include partials/postShare
@@ -29,4 +31,5 @@ html(
       else
         block content
 
+    include partials/footer
     block scripts

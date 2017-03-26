@@ -1,0 +1,12 @@
+footer.siteFooter
+  p
+    != '&copy;'
+    = new Date().getFullYear() + ' '
+    = site.name + '.'
+    | Hosted on
+    a(href='https://github.com') GitHub
+    | .
+
+  p
+    = 'For licence details, see the '
+    a(href= site.homepage + '#license') repository.
