@@ -401,7 +401,7 @@ gulp.task('feed', function() {
   var opts = {
     cheerio: {
       ignoreWhitespace: false,
-      xmlMode: true
+      xmlMode: false
     },
     pug: {
       pretty: argv.pretty,
