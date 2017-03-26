@@ -106,8 +106,7 @@
   },
   "viewport": {
     "width": "device-width",
-    "initialScale": 1,
-    "userScalable": "no"
+    "initialScale": 1
   },
   "formatDetection": {
     "telephone": "no",
