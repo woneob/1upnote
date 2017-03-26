@@ -354,11 +354,11 @@ gulp.task('page', function() {
         return post.file === '/' + pageName;
       });
 
-      hasOlderPost = postIdx + 1 <= dataObj.totalPosts - 1;
       hasNewerPost = postIdx - 1 >= 0;
+      hasOlderPost = postIdx + 1 <= dataObj.totalPosts - 1;
 
-      page.nearbyPosts.older = hasOlderPost ? dataObj.posts[postIdx + 1] : null;
       page.nearbyPosts.newer = hasNewerPost ? dataObj.posts[postIdx - 1] : null;
+      page.nearbyPosts.older = hasOlderPost ? dataObj.posts[postIdx + 1] : null;
     }
 
     file.contents = new Buffer([
