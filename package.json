@@ -79,6 +79,7 @@
   "src": "src",
   "dist": "dist",
   "language": "ko",
+  "locale": "ko_KR",
   "timezone": "Asia/Seoul",
   "charset": "utf-8",
   "rss": "/feed.xml",

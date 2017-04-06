@@ -1,0 +1,24 @@
+//- teitter
+meta(
+  name= 'twitter:card'
+  content= 'summary')
+
+meta(
+  name= 'twitter:site'
+  content= site.author.twitter)
+
+meta(
+  name= 'twitter:creator'
+  content= site.author.twitter)
+
+meta(
+  name= 'twitter:url'
+  content= site.website + page.permalink)
+
+meta(
+  name= 'twitter:title'
+  content= page.title || site.name)
+
+meta(
+  name= 'twitter:description'
+  content= page.description || site.tagline)

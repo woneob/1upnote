@@ -1,0 +1,32 @@
+//- Social
+meta(
+  property= 'og:site_name'
+  content= site.name)
+
+meta(
+  property= 'og:type'
+  content= page.type === 'post' ? 'article' : 'website')
+
+meta(
+  property= 'og:url'
+  content= site.website + page.permalink)
+
+meta(
+  property= 'og:title'
+  content= page.title || site.name)
+
+meta(
+  property= 'og:description'
+  content= page.description || site.tagline)
+
+meta(
+  property= 'og:article:author'
+  content= site.author.name)
+
+meta(
+  property= 'og:locale'
+  content= site.locale)
+
+meta(
+  property= 'og:og:updated_time'
+  content= page.date)
