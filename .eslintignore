@@ -1,9 +1,9 @@
 # ESLint ignore patterns
 # http://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories
 
-**/node_modules
-**/dist
-**/src/scripts/libs
-**/src/scripts/plugins
-**/*.min.js
-**/*.pug
+node_modules
+dist
+src/scripts/libs
+src/scripts/plugins
+*.min.js
+*.pug
