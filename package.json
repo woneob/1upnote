@@ -38,9 +38,9 @@
     "npm": ">=3"
   },
   "devDependencies": {
-    "autoprefixer": "7.1.1",
+    "autoprefixer": "7.1.2",
     "chalk": "2.0.1",
-    "cheerio": "1.0.0-rc.1",
+    "cheerio": "1.0.0-rc.2",
     "cssnano": "3.10.0",
     "del": "3.0.0",
     "glob": "7.1.2",
@@ -64,10 +64,10 @@
     "gulp-to-ico": "1.0.0",
     "gulp-uglify": "3.0.0",
     "gulp-util": "3.0.8",
-    "js-yaml": "3.8.4",
+    "js-yaml": "3.9.1",
     "lazypipe": "1.0.1",
     "prismjs": "1.6.0",
-    "pug": "2.0.0-rc.2",
+    "pug": "2.0.0-rc.3",
     "yargs": "8.0.2"
   },
   "dependencies": {},
